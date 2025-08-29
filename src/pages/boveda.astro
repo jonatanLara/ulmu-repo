@@ -1,0 +1,358 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<BaseLayout title="Bóveda de Respaldo">
+  <Navbar />
+
+  <section class="space-y-6">
+    <!-- PON darkMode: 'class' en tailwind.config.js y añade class="dark" al <html> -->
+    <!-- Contenido principal convertido a Tailwind en modo dark -->
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-10 border-b-4 border-blue-500">
+      <div class="max-w-6xl mx-auto px-4">
+        <h1 class="text-3xl md:text-4xl font-bold mb-3">
+          Guía de Usuario - Aplicación de Respaldo Preventivo
+        </h1>
+        <p class="text-gray-300">
+          Procedimiento para el análisis y documentación de discos duros
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8 text-gray-200">
+
+      <!-- Introducción -->
+      <section id="inicio" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-4">Introducción</h2>
+        <p class="text-gray-300 mb-4">
+          A mediados de 2024, se implementó una estrategia para realizar respaldos preventivos de los discos duros del proyecto. Esta iniciativa nació de la necesidad de gestionar eficientemente la información entregada para respaldo, sin conocer de antemano su contenido específico.
+        </p>
+        <p class="text-gray-300 mb-4">
+          La <strong class="text-white">primera versión de la aplicación</strong> fue desarrollada exclusivamente para el área de sistemas. Sin embargo, debido a la importancia y las ventajas que representaba para la organización, se tomó la decisión de liberar la aplicación para todos los usuarios que la requieran.
+        </p>
+        <p class="text-gray-300">
+          La aplicación fue diseñada para generar un documento comparativo que permita reconocer archivos nuevos, facilitar actualizaciones posteriores y actuar como un mecanismo preventivo y correctivo.
+        </p>
+      </section>
+
+      <!-- Equipo -->
+      <section class="rounded-xl shadow-sm mb-8 bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-10 border-b-4 border-blue-500">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Equipo de Colaboradores</h2>
+
+        <div class="flex flex-col lg:flex-row lg:items-start gap-6">
+          <div class="lg:w-1/2">
+            <p class="text-gray-300 tracking-wide">
+              Esta aplicación fue posible gracias al talento y dedicación de nuestro equipo de desarrollo:
+            </p>
+          </div>
+
+          <div class="lg:w-1/2">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+              <!-- Card genérica: duplica y cambia datos -->
+              <!-- Jonatan -->
+              <div class="text-center group">
+                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <img src="https://avatars.githubusercontent.com/u/5728020?v=4" alt="Jonatan Lara" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
+                    <a href="https://github.com/jonatanLara" target="_blank" class="text-white" aria-label="GitHub de Jonatan Lara">
+                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@jonatanLara</p>
+              </div>
+
+              <!-- Juan José -->
+              <div class="text-center group">
+                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <img src="https://avatars.githubusercontent.com/u/117763193?v=4" alt="Juan José" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
+                    <a href="https://github.com/juanjose1930" target="_blank" class="text-white" aria-label="GitHub de Juan José">
+                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@juanjose1930</p>
+              </div>
+
+              <!-- Carlos Pérez -->
+              <div class="text-center group">
+                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <img src="https://avatars.githubusercontent.com/u/73508867?v=4" alt="Carlos Pérez" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
+                    <a href="https://github.com/carlosperezse" target="_blank" class="text-white" aria-label="GitHub de Carlos Pérez">
+                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@carlosperezse</p>
+              </div>
+
+              <!-- David Quime -->
+              <div class="text-center group">
+                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <img src="https://avatars.githubusercontent.com/u/211899468?v=4" alt="David Quime" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
+                    <a href="https://github.com/dquime02" target="_blank" class="text-white" aria-label="GitHub de David Quime">
+                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@dquime02</p>
+              </div>
+
+              <!-- Jose Villanueva -->
+              <div class="text-center group">
+                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <img src="https://avatars.githubusercontent.com/u/54222990?v=4" alt="Jose Villanueva" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
+                    <a href="https://github.com/joselsvp" target="_blank" class="text-white" aria-label="GitHub de Jose Villanueva">
+                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@joselsvp</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Descarga y Preparación -->
+      <section id="instalacion" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Descarga y Preparación de la Aplicación</h2>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">1</span>
+              Descargar la aplicación
+            </h3>
+            <p class="text-gray-300">Obtén el archivo ZIP de la aplicación desde la fuente proporcionada.</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">2</span>
+              Descomprimir el archivo
+            </h3>
+            <p class="text-gray-300">Extrae el contenido del ZIP. Se creará una carpeta llamada <strong class="text-white">Boveda</strong>.</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">3</span>
+              Estructura de carpetas
+            </h3>
+            <p class="text-gray-300">Dentro de <strong class="text-white">Boveda</strong> encontrarás:</p>
+            <ul class="list-disc list-inside text-gray-300">
+              <li>Carpeta <strong class="text-white">jre</strong> (no eliminar)</li>
+              <li>Ejecutable <strong class="text-white">boveda.exe</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-yellow-200/20 text-yellow-100 border-l-4 border-yellow-400 p-4 rounded-lg">
+          <p><strong class="text-white">Importante:</strong> No elimines la carpeta JRE, ya que contiene componentes necesarios para que la aplicación funcione correctamente.</p>
+        </div>
+      </section>
+
+      <!-- Preparación del Disco -->
+      <section id="preparacion" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Preparación del Disco Duro</h2>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">1</span>
+              Crear carpeta principal
+            </h3>
+            <p class="text-gray-300">En la raíz de la unidad, crea una carpeta con el <strong class="text-white">número de serie</strong> del disco (ej. <em>HDD-SN-5X8A9B</em>).</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">2</span>
+              Organizar archivos
+            </h3>
+            <p class="text-gray-300">Coloca <strong class="text-white">todas</strong> las carpetas y archivos a respaldar <strong class="text-white">dentro</strong> de esa carpeta.</p>
+          </div>
+        </div>
+
+        <pre class="mt-6 bg-gray-900 text-gray-200 rounded-lg p-4 overflow-x-auto text-sm">
+    <code>Disco Duro (E:)
+    └── 📁 HDD-SN-5X8A9B/ &lt;-- Carpeta con el N° de Serie
+        ├── 📁 Proyectos_2024
+        ├── 📁 Informes_Finales
+        └── 📄 Manual_Procedimientos.pdf</code>
+        </pre>
+      </section>
+
+      <!-- Ejecución -->
+      <section id="ejecucion" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Ejecución de la Aplicación</h2>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">1</span>
+              Iniciar la aplicación
+            </h3>
+            <p class="text-gray-300">Haz doble clic en <strong class="text-white">boveda.exe</strong>.</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">2</span>
+              Completar el formulario
+            </h3>
+            <ul class="list-disc list-inside text-gray-300 space-y-1">
+              <li><strong class="text-white">N.S DE LA UNIDAD</strong></li>
+              <li><strong class="text-white">COORDINACIÓN/SUBPÁREA</strong></li>
+              <li><strong class="text-white">Nombre del responsable</strong></li>
+              <li><strong class="text-white">Link:</strong> https://app.tree.ulmu-tm.com/</li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">3</span>
+              Seleccionar carpeta
+            </h3>
+            <p class="text-gray-300">Clic en <strong class="text-white">"Buscar Carpeta"</strong> y elige la carpeta con el número de serie.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Análisis -->
+      <section id="analisis" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Análisis y Generación de Archivos</h2>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">1</span>
+              Ejecutar análisis
+            </h3>
+            <p class="text-gray-300">Clic en <strong class="text-white">"Ejecutar Análisis"</strong>.</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">2</span>
+              Guardar resultados
+            </h3>
+            <p class="text-gray-300">Elige la ubicación para guardar los archivos generados.</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">3</span>
+              Archivos generados
+            </h3>
+            <ul class="list-disc list-inside text-gray-300">
+              <li><strong class="text-white">PDF</strong> – Resumen del análisis</li>
+              <li><strong class="text-white">JSON</strong> – Estructura completa del árbol</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-yellow-200/20 text-yellow-100 border-l-4 border-yellow-400 p-4 rounded-lg">
+          <p><strong class="text-white">Importante:</strong> Mantén estos archivos visibles para futuras consultas.</p>
+        </div>
+      </section>
+
+      <!-- Resultados / Visualizador -->
+      <section id="resultados" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-4">Visualización de Resultados</h2>
+        <p class="text-gray-300">Puedes visualizar el contenido del archivo JSON generado en el sitio web:</p>
+
+        <a href="https://app.tree.ulmu-tm.com/" target="_blank"
+          class="mt-3 inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow transition">
+          Abrir Visualizador
+        </a>
+
+        <!-- Pasos del visualizador -->
+        <div class="mt-6 bg-blue-900/20 p-5 rounded-lg">
+          <h3 class="text-white font-semibold mb-3">Pasos para usar el visualizador:</h3>
+          <ol class="list-decimal list-inside space-y-2 text-gray-300">
+            <li>Haz clic en <strong class="text-white">"Seleccionar archivo"</strong>.</li>
+            <li>Elige tu archivo <strong class="text-white">.json</strong> generado.</li>
+            <li>Verás una carpeta con el número de serie del disco duro.</li>
+            <li>Navega con las flechas para expandir subcarpetas.</li>
+            <li>El botón de información a la derecha muestra detalles del nodo.</li>
+          </ol>
+
+          <div class="mt-4 flex max-w-md">
+            <input type="text" placeholder="Buscar archivo o carpeta..."
+                  class="flex-1 px-3 py-2 rounded-l-md bg-gray-900 text-gray-200 border border-gray-700 outline-none">
+            <button class="px-4 py-2 rounded-r-md bg-blue-600 hover:bg-blue-500 text-white font-medium border border-blue-600">
+              Buscar
+            </button>
+          </div>
+
+          <p class="mt-3 text-gray-300">
+            El visualizador incluye un <strong class="text-white">buscador</strong> para localizar archivos o carpetas por nombre.
+          </p>
+        </div>
+
+        <!-- Ejemplo estructura -->
+        <div class="mt-6 bg-gray-900 text-gray-200 rounded-lg p-4 font-mono text-sm">
+          <div class="select-none">
+            <div class="text-blue-400"><span class="inline-block mr-2 rotate-90">▶</span> HDD-SN-5X8A9B</div>
+            <div class="text-blue-400 ml-4"><span class="inline-block mr-2">▶</span> Proyectos_2024</div>
+            <div class="text-blue-400 ml-4"><span class="inline-block mr-2">▶</span> Informes_Finales</div>
+            <div class="text-green-400 ml-8">📄 Manual_Procedimientos.pdf</div>
+          </div>
+        </div>
+
+        <h3 class="mt-6 text-white font-semibold">¿Qué puedes hacer en esta plataforma?</h3>
+        <ul class="list-disc list-inside text-gray-300 space-y-1 mt-2">
+          <li><strong class="text-white">Visualizar en árbol</strong> la estructura completa</li>
+          <li><strong class="text-white">Buscar contenido</strong> por nombre</li>
+          <li><strong class="text-white">Compartir el análisis</strong> con terceros</li>
+          <li><strong class="text-white">Solicitar archivos específicos</strong> con ruta exacta</li>
+        </ul>
+
+        <div class="mt-4 bg-yellow-200/20 text-yellow-100 border-l-4 border-yellow-400 p-4 rounded-lg">
+          <p><strong class="text-white">Nota:</strong> Útil cuando no se tiene el disco físicamente pero se debe verificar su contenido.</p>
+        </div>
+      </section>
+
+      <!-- Consejos -->
+      <section id="consejos" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-4">Recomendaciones Finales</h2>
+
+        <div class="bg-yellow-200/20 text-yellow-100 border-l-4 border-yellow-400 p-4 rounded-lg mb-4">
+          <p>Se recomienda ejecutar esta aplicación cada vez que vayas a prestar tu unidad, para mantener actualizada la información de los cambios realizados.</p>
+        </div>
+
+        <h3 class="text-white font-semibold mb-2">Buenas prácticas:</h3>
+        <ul class="list-disc list-inside text-gray-300 space-y-1">
+          <li>Usa siempre el número de serie correcto para la carpeta principal</li>
+          <li>Organiza y limpia los archivos antes de ejecutar el análisis</li>
+          <li>Verifica el PDF generado</li>
+          <li>Guarda copias locales del JSON y PDF</li>
+          <li>Comparte el JSON con colegas cuando sea necesario</li>
+        </ul>
+
+        <pre class="mt-4 bg-gray-900 text-gray-200 rounded-lg p-4 overflow-x-auto text-sm">
+    <code>Disco Duro (E:)
+    ├── 📁 HDD-SN-5X8A9B/
+    ├── 📄 HDD-SN-5X8A9B_Resumen.pdf
+    └── 📄 HDD-SN-5X8A9B.json</code>
+        </pre>
+      </section>
+
+    </main>
+
+
+    <a href="/" 
+       class="inline-block mt-4 px-5 py-2 bg-secondary text-white rounded-lg hover:opacity-90 transition">
+      ← Regresar al inicio
+    </a>
+  </section>
+</BaseLayout>

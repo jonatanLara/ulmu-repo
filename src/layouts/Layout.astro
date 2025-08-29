@@ -1,22 +1,51 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+// src/layouts/Layout.astro
+const { title = "Mi App", description = "App con Astro + Tailwind" } = Astro.props;
+---
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+    <header class="flex justify-between items-center px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+      <nav class="flex space-x-6">
+        <a href="/" class="hover:underline">Inicio</a>
+        <a href="/boveda" class="hover:underline">Bóveda</a>
+        <a href="/analyzer" class="hover:underline">Analyzer</a>
+      </nav>
+      <button
+        id="theme-toggle"
+        class="px-3 py-1 rounded-lg border border-gray-400 dark:border-gray-600"
+      >
+        🌓 Tema
+      </button>
+    </header>
+
+    <main class="p-6">
+      <slot />
+    </main>
+
+    <script is:inline>
+      const toggle = document.getElementById("theme-toggle");
+      const html = document.documentElement;
+
+      // cargar tema guardado
+      if (localStorage.theme === "dark") {
+        html.classList.add("dark");
+      }
+
+      toggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        if (html.classList.contains("dark")) {
+          localStorage.theme = "dark";
+        } else {
+          localStorage.theme = "light";
+        }
+      });
+    </script>
+  </body>
+</html>

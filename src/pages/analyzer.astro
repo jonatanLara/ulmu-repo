@@ -1,0 +1,275 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<BaseLayout title="Manual AnalyzerApp v1.0.0">
+  <Navbar />
+
+  <section class="space-y-6">
+    <h2 class="text-3xl font-bold">🛠️ Manual de AnalyzerApp</h2>
+    <p class="text-lg">
+      AnalyzerApp v1.0.0 te permite analizar y gestionar respaldos de manera
+      eficiente. Aquí encontrarás la documentación de uso.
+    </p>
+
+    <!-- Header -->
+    <header id="inicio" class="bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-10 border-b-4 border-blue-500">
+      <div class="max-w-6xl mx-auto px-4">
+        <h1 class="text-3xl md:text-4xl font-bold mb-2">Manual de AnalyzerApp v1.0.0</h1>
+        <p class="text-gray-300">Guía completa para el análisis de carpetas y validación de rutas</p>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="max-w-6xl mx-auto px-4 py-8 text-gray-200">
+
+      <!-- Intro -->
+      <section class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-4">Introducción a AnalyzerApp</h2>
+        <p class="text-gray-300">
+          AnalyzerApp es una herramienta especializada diseñada para analizar la estructura de carpetas y archivos, identificando rutas con problemas de longitud o caracteres especiales no admitidos. Esta aplicación es esencial para mantener la integridad de tus datos y prevenir errores en sistemas de respaldo.
+        </p>
+      </section>
+
+      <!-- Equipo -->
+      <section class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Equipo de Colaboradores</h2>
+
+        <div class="flex flex-col lg:flex-row gap-6">
+          <div class="lg:w-1/2">
+            <p class="text-gray-300 tracking-wide">
+              Esta aplicación fue posible gracias al talento y dedicación de nuestro equipo de desarrollo:
+            </p>
+          </div>
+
+          <div class="lg:w-1/2">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+              <!-- Tarjeta: duplica y cambia datos -->
+              <!-- Jonatan -->
+              <div class="text-center group">
+                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <img src="https://avatars.githubusercontent.com/u/5728020?v=4" alt="Jonatan Lara" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
+                    <a href="https://github.com/jonatanLara" target="_blank" class="text-white" aria-label="GitHub de Jonatan Lara">
+                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@jonatanLara</p>
+              </div>
+
+              <!-- Juan José -->
+              <div class="text-center group">
+                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <img src="https://avatars.githubusercontent.com/u/117763193?v=4" alt="Juan José" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
+                    <a href="https://github.com/juanjose1930" target="_blank" class="text-white" aria-label="GitHub de Juan José">
+                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@juanjose1930</p>
+              </div>
+
+              <!-- Carlos -->
+              <div class="text-center group">
+                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <img src="https://avatars.githubusercontent.com/u/73508867?v=4" alt="Carlos Pérez" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
+                    <a href="https://github.com/carlosperezse" target="_blank" class="text-white" aria-label="GitHub de Carlos Pérez">
+                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@carlosperezse</p>
+              </div>
+
+              <!-- David -->
+              <div class="text-center group">
+                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <img src="https://avatars.githubusercontent.com/u/211899468?v=4" alt="David Quime" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
+                    <a href="https://github.com/dquime02" target="_blank" class="text-white" aria-label="GitHub de David Quime">
+                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@dquime02</p>
+              </div>
+
+              <!-- Jose -->
+              <div class="text-center group">
+                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
+                  <img src="https://avatars.githubusercontent.com/u/54222990?v=4" alt="Jose Villanueva" class="w-full h-full object-cover">
+                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
+                    <a href="https://github.com/joselsvp" target="_blank" class="text-white" aria-label="GitHub de Jose Villanueva">
+                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2 .7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                    </a>
+                  </div>
+                </div>
+                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@joselsvp</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Instalación -->
+      <section id="instalacion" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Instalación y Configuración Inicial</h2>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">1</span>
+              Descargar el programa
+            </h3>
+            <p class="text-gray-300">Obtén el archivo ejecutable (.exe) de AnalyzerApp desde la fuente oficial.</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">2</span>
+              Ejecutar la aplicación
+            </h3>
+            <p class="text-gray-300">Haz doble clic en el archivo .exe para iniciar la aplicación.</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">3</span>
+              Permisos de Windows
+            </h3>
+            <p class="text-gray-300">Si aparece una alerta, haz clic en <strong class="text-white">“Más información”</strong> y luego en <strong class="text-white">“Ejecutar de todas formas”</strong>.</p>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-amber-200/20 text-amber-100 border-l-4 border-amber-400 p-4 rounded-lg">
+          <p><strong class="text-white">Nota de seguridad:</strong> Normal en apps no firmadas. Verifica que la descarga sea de una fuente confiable.</p>
+        </div>
+      </section>
+
+      <!-- Proceso de Análisis -->
+      <section id="analisis" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Proceso de Análisis</h2>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">1</span>
+              Seleccionar carpeta a analizar
+            </h3>
+            <p class="text-gray-300">Elige la carpeta raíz o un disco completo para analizar.</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">2</span>
+              Configurar límite de caracteres
+            </h3>
+            <p class="text-gray-300">Usa <strong class="text-white">260</strong> caracteres como límite estándar para rutas en Windows.</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="flex items-center font-semibold text-white mb-2">
+              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">3</span>
+              Iniciar el análisis
+            </h3>
+            <p class="text-gray-300">Clic en <strong class="text-white">“Analizar y exportar (Excel)”</strong> para comenzar.</p>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-yellow-200/20 text-yellow-100 border-l-4 border-yellow-400 p-4 rounded-lg">
+          <p>Durante el análisis, verás una barra de progreso. El tiempo depende del tamaño de la carpeta/disco.</p>
+        </div>
+      </section>
+
+      <!-- Resultados -->
+      <section id="resultados" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Interpretación de Resultados</h2>
+        <p class="text-gray-300 mb-4">Se generará un archivo Excel con tres pestañas que clasifican las rutas:</p>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <!-- OK -->
+          <div class="bg-gray-700 p-5 rounded-lg">
+            <h3 class="mb-2">
+              <span class="inline-flex items-center gap-2 rounded-full bg-emerald-600/20 text-emerald-300 px-3 py-1 text-sm font-semibold">✅ OK</span>
+            </h3>
+            <p class="text-gray-300">Rutas dentro del límite de 260 caracteres y sin caracteres no permitidos.</p>
+          </div>
+
+          <!-- Excede -->
+          <div class="bg-gray-700 p-5 rounded-lg">
+            <h3 class="mb-2">
+              <span class="inline-flex items-center gap-2 rounded-full bg-amber-500/20 text-amber-200 px-3 py-1 text-sm font-semibold">⚠️ Excede</span>
+            </h3>
+            <p class="text-gray-300">Rutas que superan 260 caracteres; pueden fallar en copias o respaldos.</p>
+          </div>
+
+          <!-- Inválidos -->
+          <div class="bg-gray-700 p-5 rounded-lg">
+            <h3 class="mb-2">
+              <span class="inline-flex items-center gap-2 rounded-full bg-rose-600/20 text-rose-300 px-3 py-1 text-sm font-semibold">❌ Inválidos</span>
+            </h3>
+            <p class="text-gray-300">Rutas con caracteres especiales no admitidos por el sistema.</p>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-yellow-200/20 text-yellow-100 border-l-4 border-yellow-400 p-4 rounded-lg">
+          <p><strong class="text-white">Recomendación:</strong> Corrige primero las pestañas <em>Excede</em> e <em>Inválidos</em> antes de respaldar.</p>
+        </div>
+      </section>
+
+      <!-- Consejos -->
+      <section id="consejos" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Consejos y Mejores Prácticas</h2>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="text-white font-semibold mb-2">Organización de archivos</h3>
+            <p class="text-gray-300">Usa una estructura lógica y evita anidar demasiadas carpetas.</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="text-white font-semibold mb-2">Nomenclatura adecuada</h3>
+            <p class="text-gray-300">Nombres cortos/descriptivos, sin caracteres especiales.</p>
+          </div>
+
+          <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
+            <h3 class="text-white font-semibold mb-2">Análisis periódico</h3>
+            <p class="text-gray-300">Ejecuta AnalyzerApp regularmente para prevenir problemas.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problemas comunes -->
+      <section id="problemas" class="bg-gray-800/60 p-6 rounded-xl shadow-sm">
+        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Solución de Problemas Comunes</h2>
+
+        <div class="space-y-4">
+          <div class="bg-rose-600/15 text-rose-200 border-l-4 border-rose-500 p-4 rounded-lg">
+            <p><strong class="text-white">Problema:</strong> La aplicación no se ejecuta o se cierra inmediatamente.</p>
+            <p><strong class="text-white">Solución:</strong> Revisa permisos y el proceso para omitir la advertencia de seguridad de Windows.</p>
+          </div>
+
+          <div class="bg-amber-500/15 text-amber-200 border-l-4 border-amber-400 p-4 rounded-lg">
+            <p><strong class="text-white">Problema:</strong> El análisis tarda demasiado tiempo.</p>
+            <p><strong class="text-white">Solución:</strong> Para discos muy grandes, analiza carpetas específicas en lugar del disco completo.</p>
+          </div>
+
+          <div class="bg-indigo-500/15 text-indigo-200 border-l-4 border-indigo-400 p-4 rounded-lg">
+            <p><strong class="text-white">Problema:</strong> El archivo de Excel no se genera correctamente.</p>
+            <p><strong class="text-white">Solución:</strong> Verifica que tengas Excel instalado y permisos de escritura en la carpeta destino.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <a href="/" 
+       class="inline-block mt-4 px-5 py-2 bg-secondary text-white rounded-lg hover:opacity-90 transition">
+      ← Regresar al inicio
+    </a>
+  </section>
+</BaseLayout>

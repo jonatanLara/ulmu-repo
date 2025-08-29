@@ -1,0 +1,55 @@
+---
+import "../styles/global.css"; // Importa Tailwind aquí
+const { title = "Guía de Respaldo" } = Astro.props;
+---
+
+<html lang="es" class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col transition-colors duration-300">
+    <!-- Header -->
+    <header class="shadow-md bg-primary dark:bg-gray-800">
+      <div class="max-w-5xl mx-auto flex justify-between items-center p-4">
+        <h1 class="text-xl font-bold text-white">{title}</h1>
+
+        <!-- Botón de tema -->
+        <button id="theme-toggle" class="bg-secondary text-white px-3 py-1 rounded-md hover:opacity-80 transition">
+          🌙 / ☀️
+        </button>
+      </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="flex-grow max-w-5xl mx-auto p-6">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-gray-800 text-white text-center py-3 mt-6">
+      © 2025 - Guía de Respaldo
+    </footer>
+
+    <!-- Script para cambiar tema -->
+    <script>
+      const btn = document.getElementById("theme-toggle");
+      btn?.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+
+        // Guardar preferencia en localStorage
+        if (document.documentElement.classList.contains("dark")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Cargar preferencia guardada al iniciar
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+  </body>
+</html>

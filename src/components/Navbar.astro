@@ -1,0 +1,75 @@
+---
+const links = [
+  { href: "/", label: "Inicio" },
+  { href: "/boveda", label: "Bóveda" },
+  { href: "/analyzer", label: "AnalyzerApp" },
+];
+---
+
+<nav class="w-full border-b border-gray-200 dark:border-gray-700 mb-6">
+  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="/" class="font-semibold text-lg">Guía</a>
+
+    <button
+      id="nav-toggle"
+      class="md:hidden inline-flex items-center justify-center rounded-xl px-3 py-2 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <!-- Ícono hamburguesa simple -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+
+    <ul id="nav-menu" class="hidden md:flex gap-6">
+      {links.map((l) => (
+        <li>
+          <a
+            href={l.href}
+            class="hover:underline underline-offset-4 decoration-2 hover:text-secondary"
+          >
+            {l.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Menú móvil -->
+  <div id="nav-panel" class="md:hidden hidden px-4 pb-3">
+    <ul class="flex flex-col gap-3">
+      {links.map((l) => (
+        <li>
+          <a
+            href={l.href}
+            class="block rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+          >
+            {l.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <script is:inline>
+    const btn = document.getElementById("nav-toggle");
+    const menu = document.getElementById("nav-menu");
+    const panel = document.getElementById("nav-panel");
+    btn?.addEventListener("click", () => {
+      const open = menu?.classList.contains("hidden");
+      menu?.classList.toggle("hidden");
+      panel?.classList.toggle("hidden");
+      btn.setAttribute("aria-expanded", String(open));
+    });
+
+    // resaltar enlace activo
+    const path = location.pathname.replace(/\/+$/, "") || "/";
+    document.querySelectorAll('a[href]').forEach(a => {
+      if (a.getAttribute('href') === path) {
+        a.classList.add("text-secondary", "font-semibold");
+        a.setAttribute("aria-current", "page");
+      }
+    });
+  </script>
+</nav>
