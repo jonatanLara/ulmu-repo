@@ -1,3 +1,55 @@
 @import "tailwindcss";
 
-/* Puedes agregar aquí tus estilos globales extra si quieres */
+/* Tailwind v4: define tokens con @theme */
+
+/* Variables de color base por tema (para superficies grandes) */
+:root {
+  --bg: 255 255 255;
+  --fg: 23 23 23;
+}
+:root.dark {
+  --bg: 10 10 10;
+  --fg: 245 245 245;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
+
+/* Utilidades opcionales */
+.container-narrow {
+  max-width: 56rem; /* ~896px */
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* Estilos mínimos para contenido Markdown */
+.prose-ulmu { color: rgba(255,255,255,.92); }
+.prose-ulmu h1, .prose-ulmu h2, .prose-ulmu h3, .prose-ulmu h4 {
+  color: #fff; font-weight: 600; letter-spacing: -0.01em; margin: 1.6rem 0 .6rem;
+}
+.prose-ulmu h1 { font-size: clamp(1.875rem, 1.1rem + 2vw, 2.5rem); line-height: 1.2; }
+.prose-ulmu h2 { font-size: clamp(1.5rem, .9rem + 1.4vw, 2rem); line-height: 1.25; }
+.prose-ulmu h3 { font-size: 1.25rem; }
+.prose-ulmu p, .prose-ulmu ul, .prose-ulmu ol, .prose-ulmu blockquote, .prose-ulmu pre, .prose-ulmu table {
+  margin: .8rem 0;
+}
+.prose-ulmu a { color: #f041ff; text-underline-offset: 2px; text-decoration: underline; text-decoration-color: rgba(240,65,255,.4); }
+.prose-ulmu code { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: .4rem; padding: .12rem .35rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+.prose-ulmu pre { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: .75rem; padding: 1rem; overflow-x: auto; }
+.prose-ulmu blockquote { border-left: 3px solid rgba(240,65,255,.45); padding-left: .9rem; color: rgba(255,255,255,.8); }
+.prose-ulmu ul { padding-left: 1.2rem; list-style: disc }
+.prose-ulmu ol { padding-left: 1.2rem; list-style: decimal }
+.prose-ulmu img { max-width: 100%; border-radius: .8rem; }
+.prose-ulmu table { width: 100%; border-collapse: collapse; border: 1px solid rgba(255,255,255,.1); }
+.prose-ulmu th, .prose-ulmu td { border: 1px solid rgba(255,255,255,.1); padding: .5rem .6rem; }

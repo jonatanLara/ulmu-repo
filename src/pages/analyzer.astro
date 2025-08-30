@@ -7,14 +7,8 @@ import Navbar from "../components/Navbar.astro";
   <Navbar />
 
   <section class="space-y-6">
-    <h2 class="text-3xl font-bold">🛠️ Manual de AnalyzerApp</h2>
-    <p class="text-lg">
-      AnalyzerApp v1.0.0 te permite analizar y gestionar respaldos de manera
-      eficiente. Aquí encontrarás la documentación de uso.
-    </p>
-
     <!-- Header -->
-    <header id="inicio" class="bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-10 border-b-4 border-blue-500">
+    <header id="inicio" class="bg-gradient-to-r bg-white/5 bg-white/5 text-white text-center py-10 border-b-4 border-blue-500">
       <div class="max-w-6xl mx-auto px-4">
         <h1 class="text-3xl md:text-4xl font-bold mb-2">Manual de AnalyzerApp v1.0.0</h1>
         <p class="text-gray-300">Guía completa para el análisis de carpetas y validación de rutas</p>
@@ -25,7 +19,7 @@ import Navbar from "../components/Navbar.astro";
     <main class="max-w-6xl mx-auto px-4 py-8 text-gray-200">
 
       <!-- Intro -->
-      <section class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+      <section class="bg-white/5 p-6 rounded-xl shadow-sm mb-8">
         <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-4">Introducción a AnalyzerApp</h2>
         <p class="text-gray-300">
           AnalyzerApp es una herramienta especializada diseñada para analizar la estructura de carpetas y archivos, identificando rutas con problemas de longitud o caracteres especiales no admitidos. Esta aplicación es esencial para mantener la integridad de tus datos y prevenir errores en sistemas de respaldo.
@@ -33,7 +27,7 @@ import Navbar from "../components/Navbar.astro";
       </section>
 
       <!-- Equipo -->
-      <section class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+      <section class="bg-white/5 p-6 rounded-xl shadow-sm mb-8">
         <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Equipo de Colaboradores</h2>
 
         <div class="flex flex-col lg:flex-row gap-6">
@@ -116,13 +110,13 @@ import Navbar from "../components/Navbar.astro";
       </section>
 
       <!-- Instalación -->
-      <section id="instalacion" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+      <section id="instalacion" class="bg-white/5 p-6 rounded-xl shadow-sm mb-8">
         <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Instalación y Configuración Inicial</h2>
 
         <div class="grid gap-6 md:grid-cols-3">
           <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
             <h3 class="flex items-center font-semibold text-white mb-2">
-              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">1</span>
+              <span class="bg-white/5 w-7 h-7 rounded-full flex items-center justify-center mr-2">1</span>
               Descargar el programa
             </h3>
             <p class="text-gray-300">Obtén el archivo ejecutable (.exe) de AnalyzerApp desde la fuente oficial.</p>
@@ -130,7 +124,7 @@ import Navbar from "../components/Navbar.astro";
 
           <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
             <h3 class="flex items-center font-semibold text-white mb-2">
-              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">2</span>
+              <span class="bg-white/5 w-7 h-7 rounded-full flex items-center justify-center mr-2">2</span>
               Ejecutar la aplicación
             </h3>
             <p class="text-gray-300">Haz doble clic en el archivo .exe para iniciar la aplicación.</p>
@@ -138,7 +132,7 @@ import Navbar from "../components/Navbar.astro";
 
           <div class="bg-gray-700 p-5 rounded-lg border-l-4 border-blue-500">
             <h3 class="flex items-center font-semibold text-white mb-2">
-              <span class="bg-blue-500 w-7 h-7 rounded-full flex items-center justify-center mr-2">3</span>
+              <span class="bg-white/5 w-7 h-7 rounded-full flex items-center justify-center mr-2">3</span>
               Permisos de Windows
             </h3>
             <p class="text-gray-300">Si aparece una alerta, haz clic en <strong class="text-white">“Más información”</strong> y luego en <strong class="text-white">“Ejecutar de todas formas”</strong>.</p>
@@ -151,7 +145,7 @@ import Navbar from "../components/Navbar.astro";
       </section>
 
       <!-- Proceso de Análisis -->
-      <section id="analisis" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+      <section id="analisis" class="bg-white/5 p-6 rounded-xl shadow-sm mb-8">
         <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Proceso de Análisis</h2>
 
         <div class="grid gap-6 md:grid-cols-3">
@@ -186,7 +180,7 @@ import Navbar from "../components/Navbar.astro";
       </section>
 
       <!-- Resultados -->
-      <section id="resultados" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+      <section id="resultados" class="bg-white/5 p-6 rounded-xl shadow-sm mb-8">
         <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Interpretación de Resultados</h2>
         <p class="text-gray-300 mb-4">Se generará un archivo Excel con tres pestañas que clasifican las rutas:</p>
 
@@ -222,7 +216,7 @@ import Navbar from "../components/Navbar.astro";
       </section>
 
       <!-- Consejos -->
-      <section id="consejos" class="bg-gray-800/60 p-6 rounded-xl shadow-sm mb-8">
+      <section id="consejos" class="bg-white/5 p-6 rounded-xl shadow-sm mb-8">
         <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Consejos y Mejores Prácticas</h2>
 
         <div class="grid gap-6 md:grid-cols-3">
@@ -244,7 +238,7 @@ import Navbar from "../components/Navbar.astro";
       </section>
 
       <!-- Problemas comunes -->
-      <section id="problemas" class="bg-gray-800/60 p-6 rounded-xl shadow-sm">
+      <section id="problemas" class="bg-white/5 p-6 rounded-xl shadow-sm">
         <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Solución de Problemas Comunes</h2>
 
         <div class="space-y-4">

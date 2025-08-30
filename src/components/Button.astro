@@ -1,0 +1,27 @@
+---
+export interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md';
+  class?: string;
+}
+const { href, variant = 'primary', size = 'md', class: klass = '' } = Astro.props as Props;
+
+const base = "inline-flex items-center justify-center gap-2 rounded-full focus-visible:outline-none";
+const sizes = {
+  sm: "px-3 py-1.5 text-sm",
+  md: "px-5 py-2.5 text-[15px]",
+}[size];
+
+const variants = {
+  primary: "border border-white/15 bg-white/8 text-white/90 shadow-sm backdrop-blur transition hover:bg-white/12 focus-visible:ring-2 focus-visible:ring-[#f041ff]/50",
+  secondary: "border border-white/10 bg-white/5 text-white/90 transition hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/40",
+  ghost: "text-white/80 hover:text-white transition",
+}[variant];
+
+const cls = [base, sizes, variants, klass].filter(Boolean).join(" ");
+const Tag = (href ? 'a' : 'button') as any;
+---
+<Tag href={href} class={cls}>
+  <slot />
+</Tag>

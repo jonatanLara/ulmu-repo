@@ -1,0 +1,14 @@
+---
+export interface Props {
+  as?: 'div' | 'article' | 'section';
+  class?: string;
+  hover?: boolean;
+}
+const { as = 'article', class: klass = '', hover = true } = Astro.props as Props;
+const base = "rounded-2xl border border-white/10 bg-white/5 shadow-sm backdrop-blur";
+const hoverCls = hover ? " transition hover:-translate-y-0.5 hover:shadow-[0_10px_40px_rgba(240,65,255,.18)] hover:ring-1 hover:ring-[#f041ff]/30" : "";
+const Tag = as as any;
+---
+<Tag class={base + hoverCls + (klass ? ` ${klass}` : "")}>
+  <slot />
+</Tag>

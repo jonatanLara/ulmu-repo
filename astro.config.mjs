@@ -7,5 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
+  },
+   markdown: {
+    shikiConfig: { theme: "poimandres", wrap: true } // bonito para el tema oscuro
   }
 });

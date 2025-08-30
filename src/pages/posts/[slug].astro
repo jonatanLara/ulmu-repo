@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/Navbar.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+/** 1) Indica a Astro qué rutas (slugs) generar */
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+  return posts.map((p) => ({
+    params: { slug: p.slug }, // /posts/<slug>/
+    props: { post: p as CollectionEntry<"posts"> },
+  }));
+}
+
+/** 2) Props tipadas */
+const { post } = Astro.props as { post: CollectionEntry<"posts"> };
+const { Content, headings } = await post.render();
+
+/** 3) Función con tipo explícito (evita 'implicit any') */
+const fmt = (d?: Date): string =>
+  d ? new Date(d).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" }) : "";
+---
+<BaseLayout title={post.data.title + " – ULMU"} description={post.data.description || ""}>
+  <Navbar />
+
+  <article class="mx-auto max-w-3xl px-4 py-10">
+    <header class="mb-6">
+      <p class="text-xs text-white/60">
+        Publicado:
+        <time datetime={post.data.published.toISOString()}>{fmt(post.data.published)}</time>
+        {post.data.updated && " · Actualizado: "}
+        {post.data.updated && <time datetime={post.data.updated.toISOString()}>{fmt(post.data.updated)}</time>}
+      </p>
+      <h1 class="mt-1 text-3xl md:text-4xl font-semibold">{post.data.title}</h1>
+      {post.data.description && <p class="mt-2 text-white/80">{post.data.description}</p>}
+      {(post.data.tags || []).length > 0 && (
+        <div class="mt-3 flex flex-wrap gap-2">
+          {post.data.tags.map((t) => (
+            <span class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-xs">{t}</span>
+          ))}
+        </div>
+      )}
+      {post.data.cover && <img src={post.data.cover} alt="" class="mt-6 w-full rounded-2xl object-cover" />}
+    </header>
+
+    <div class="prose-ulmu">
+      <Content />
+    </div>
+
+    {headings.length > 3 && (
+      <aside class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm">
+        <p class="mb-2 font-medium">En esta guía</p>
+        <ul class="space-y-1">
+          {headings.map((h) => (
+            <li class="pl-2" style={{ marginLeft: (h.depth - 2) * 12 + "px" }}>
+              <a href={"#" + h.slug} class="text-white/80 hover:text-white">{h.text}</a>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    )}
+  </article>
+</BaseLayout>

@@ -2,74 +2,50 @@
 const links = [
   { href: "/", label: "Inicio" },
   { href: "/boveda", label: "Bóveda" },
-  { href: "/analyzer", label: "AnalyzerApp" },
+  { href: "/analyzer", label: "Analyzer" },
+  { href: "/posts", label: "Posts" },
 ];
+const current = (Astro.url.pathname.replace(/\/+$/, "") || "/");
+const isActive = (href: string) => href === current;
 ---
+<nav class="sticky top-0 z-50 border-b border-white/10 bg-white/5 backdrop-blur supports-[backdrop-filter]:bg-white/7">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2">
+    <a href="/" class="font-semibold tracking-tight">ULMU</a>
 
-<nav class="w-full border-b border-gray-200 dark:border-gray-700 mb-6">
-  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-    <a href="/" class="font-semibold text-lg">Guía</a>
-
-    <button
-      id="nav-toggle"
-      class="md:hidden inline-flex items-center justify-center rounded-xl px-3 py-2 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800"
-      aria-label="Abrir menú"
-      aria-expanded="false"
-    >
-      <!-- Ícono hamburguesa simple -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3 6h18M3 12h18M3 18h18"/>
-      </svg>
-    </button>
-
-    <ul id="nav-menu" class="hidden md:flex gap-6">
-      {links.map((l) => (
+    <ul class="flex items-center gap-1">
+      {links.map(l => (
         <li>
           <a
             href={l.href}
-            class="hover:underline underline-offset-4 decoration-2 hover:text-secondary"
+            aria-current={isActive(l.href) ? "page" : undefined}
+            class={[
+              "relative inline-block rounded-lg px-3 py-2 text-sm transition",
+              isActive(l.href) ? "text-white" : "text-white/80 hover:text-white"
+            ].join(" ")}
           >
             {l.label}
+            {isActive(l.href) && (
+              <span aria-hidden="true"
+                    class="pointer-events-none absolute inset-x-2 -bottom-1 h-px bg-[linear-gradient(66.77deg,#d83333,#f041ff)]"></span>
+            )}
           </a>
         </li>
       ))}
+      <li class="ml-2">
+        <button id="themeToggle"
+                class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f041ff]/40">
+          Tema
+        </button>
+      </li>
     </ul>
   </div>
 
-  <!-- Menú móvil -->
-  <div id="nav-panel" class="md:hidden hidden px-4 pb-3">
-    <ul class="flex flex-col gap-3">
-      {links.map((l) => (
-        <li>
-          <a
-            href={l.href}
-            class="block rounded-lg px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800"
-          >
-            {l.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-
-  <script is:inline>
-    const btn = document.getElementById("nav-toggle");
-    const menu = document.getElementById("nav-menu");
-    const panel = document.getElementById("nav-panel");
-    btn?.addEventListener("click", () => {
-      const open = menu?.classList.contains("hidden");
-      menu?.classList.toggle("hidden");
-      panel?.classList.toggle("hidden");
-      btn.setAttribute("aria-expanded", String(open));
-    });
-
-    // resaltar enlace activo
-    const path = location.pathname.replace(/\/+$/, "") || "/";
-    document.querySelectorAll('a[href]').forEach(a => {
-      if (a.getAttribute('href') === path) {
-        a.classList.add("text-secondary", "font-semibold");
-        a.setAttribute("aria-current", "page");
-      }
+  <script type="module">
+    const KEY = "ulmu-theme";
+    const root = document.documentElement;
+    document.getElementById("themeToggle")?.addEventListener("click", () => {
+      const isDark = root.classList.toggle("dark");
+      localStorage.setItem(KEY, isDark ? "dark" : "light");
     });
   </script>
 </nav>

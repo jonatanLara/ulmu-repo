@@ -1,55 +1,45 @@
 ---
-import "../styles/global.css"; // Importa Tailwind aquí
-const { title = "Guía de Respaldo" } = Astro.props;
+import "../styles/global.css";
+const {
+  title = "ULMU.REPO",
+  description = "ULMU · utilidades y herramientas",
+} = Astro.props;
 ---
-
-<html lang="es" class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+<!doctype html>
+<html lang="es" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
-  </head>
-  <body class="min-h-screen flex flex-col transition-colors duration-300">
-    <!-- Header -->
-    <header class="shadow-md bg-primary dark:bg-gray-800">
-      <div class="max-w-5xl mx-auto flex justify-between items-center p-4">
-        <h1 class="text-xl font-bold text-white">{title}</h1>
+    <meta name="description" content={description} />
 
-        <!-- Botón de tema -->
-        <button id="theme-toggle" class="bg-secondary text-white px-3 py-1 rounded-md hover:opacity-80 transition">
-          🌙 / ☀️
-        </button>
-      </div>
-    </header>
-
-    <!-- Contenido principal -->
-    <main class="flex-grow max-w-5xl mx-auto p-6">
-      <slot />
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-primary dark:bg-gray-800 text-white text-center py-3 mt-6">
-      © 2025 - Guía de Respaldo
-    </footer>
-
-    <!-- Script para cambiar tema -->
+    <!-- Evitar FOUC del tema -->
     <script>
-      const btn = document.getElementById("theme-toggle");
-      btn?.addEventListener("click", () => {
-        document.documentElement.classList.toggle("dark");
-
-        // Guardar preferencia en localStorage
-        if (document.documentElement.classList.contains("dark")) {
-          localStorage.setItem("theme", "dark");
-        } else {
-          localStorage.setItem("theme", "light");
-        }
-      });
-
-      // Cargar preferencia guardada al iniciar
-      if (localStorage.getItem("theme") === "dark") {
-        document.documentElement.classList.add("dark");
-      }
+      (function () {
+        try {
+          const KEY = "ulmu-theme";
+          const saved = localStorage.getItem(KEY);
+          if (saved === "dark") document.documentElement.classList.add("dark");
+          else if (saved === "light") document.documentElement.classList.remove("dark");
+          else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.classList.add("dark");
+          }
+        } catch {}
+      })();
     </script>
+
+    <!-- OG básico -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <!-- Fondo tipo Astro: halo violeta + gradiente azul noche -->
+  <body class="min-h-dvh text-white antialiased bg-fixed bg-[radial-gradient(1200px_520px_at_50%_-12%,rgba(168,85,247,.55),rgba(11,16,32,0)_70%),linear-gradient(180deg,#1b174a_0%,#151a3a_45%,#0b1020_100%)]">
+    <!-- Capa glow/viñeta -->
+    <div aria-hidden="true"
+         class="pointer-events-none fixed inset-0
+                [mask-image:radial-gradient(80%_80%_at_50%_35%,black,transparent_70%)]
+                bg-[radial-gradient(600px_220px_at_50%_0%,rgba(240,65,255,.22),transparent_70%),radial-gradient(400px_160px_at_20%_10%,rgba(255,88,88,.18),transparent_70%),radial-gradient(500px_200px_at_80%_10%,rgba(130,70,255,.18),transparent_70%)]"></div>
+    <slot />
   </body>
 </html>
