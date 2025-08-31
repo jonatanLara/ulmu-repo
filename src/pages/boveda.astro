@@ -13,7 +13,7 @@ import Navbar from "../components/Navbar.astro";
     <!-- Contenido principal convertido a Tailwind en modo dark -->
 
     <!-- Header -->
-    <header class="bg-gradient-to-r from-gray-bg-white/5 bg-white/5 text-white text-center py-10 border-b-4 border-blue-500">
+    <header class="bg-gradient-to-r from-gray-bg-white/5 bg-white/5 text-white text-center py-10 ">
       <div class="max-w-6xl mx-auto px-4">
         <h1 class="text-3xl md:text-4xl font-bold mb-3">
           Guía de Usuario - Aplicación de Respaldo Preventivo
@@ -27,99 +27,155 @@ import Navbar from "../components/Navbar.astro";
     <main class="max-w-6xl mx-auto px-4 py-8 text-gray-200">
 
       <!-- Introducción -->
-      <section id="inicio" class="bg-white/5 p-6 rounded-xl shadow-sm mb-8">
-        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-4">Introducción</h2>
-        <p class="text-gray-300 mb-4">
-          A mediados de 2024, se implementó una estrategia para realizar respaldos preventivos de los discos duros del proyecto. Esta iniciativa nació de la necesidad de gestionar eficientemente la información entregada para respaldo, sin conocer de antemano su contenido específico.
+      <section id="inicio"
+        class="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8 shadow-sm backdrop-blur mb-8">
+        <!-- barra superior en gradiente -->
+        <div aria-hidden="true" class="absolute inset-x-0 top-0 h-[3px] bg-[linear-gradient(66.77deg,#d83333,#f041ff)]"></div>
+
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight
+                  text-transparent bg-clip-text bg-[linear-gradient(66.77deg,#d83333,#f041ff)]">
+          Introducción
+        </h2>
+        <div class="mt-2 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"></div>
+
+        <p class="mt-4 text-white/85 leading-relaxed">
+          A mediados de 2024, se implementó una estrategia para realizar respaldos preventivos de los discos duros del proyecto.
+          Esta iniciativa nació de la necesidad de gestionar eficientemente la información entregada para respaldo, sin conocer de antemano su contenido específico.
         </p>
-        <p class="text-gray-300 mb-4">
-          La <strong class="text-white">primera versión de la aplicación</strong> fue desarrollada exclusivamente para el área de sistemas. Sin embargo, debido a la importancia y las ventajas que representaba para la organización, se tomó la decisión de liberar la aplicación para todos los usuarios que la requieran.
+
+        <p class="mt-3 text-white/85 leading-relaxed">
+          La <span class="font-semibold text-white">primera versión de la aplicación</span> fue desarrollada exclusivamente para el área de sistemas.
+          Dada su relevancia y beneficios para la organización, se decidió liberarla para todos los usuarios que la requieran.
         </p>
-        <p class="text-gray-300">
-          La aplicación fue diseñada para generar un documento comparativo que permita reconocer archivos nuevos, facilitar actualizaciones posteriores y actuar como un mecanismo preventivo y correctivo.
+
+        <p class="mt-3 text-white/85 leading-relaxed">
+          La aplicación genera un documento comparativo que permite reconocer archivos nuevos, facilitar actualizaciones posteriores
+          y actuar como un mecanismo preventivo y correctivo.
         </p>
       </section>
 
       <!-- Equipo -->
-      <section class="rounded-xl shadow-sm mb-8 bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-10 border-b-4 border-blue-500">
-        <h2 class="text-xl font-semibold text-blue-400 border-b border-blue-600 pb-2 mb-6">Equipo de Colaboradores</h2>
+      <section
+        class="rounded-2xl border border-white/10 bg-white/5 text-white px-6 py-10 shadow-sm backdrop-blur mb-8">
+        <h2 class="text-center text-2xl font-semibold tracking-tight
+                  text-transparent bg-clip-text bg-[linear-gradient(66.77deg,#d83333,#f041ff)]">
+          Equipo de Colaboradores
+        </h2>
+        <div class="mx-auto mt-2 h-px w-40 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
 
-        <div class="flex flex-col lg:flex-row lg:items-start gap-6">
-          <div class="lg:w-1/2">
-            <p class="text-gray-300 tracking-wide">
-              Esta aplicación fue posible gracias al talento y dedicación de nuestro equipo de desarrollo:
-            </p>
-          </div>
+        <div class="mt-6 flex flex-col items-start gap-8 lg:flex-row">
+          <p class="lg:w-1/2 text-center lg:text-left text-white/85 leading-relaxed">
+            Esta aplicación fue posible gracias al talento y dedicación de nuestro equipo de desarrollo:
+          </p>
 
-          <div class="lg:w-1/2">
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
-              <!-- Card genérica: duplica y cambia datos -->
-              <!-- Jonatan -->
-              <div class="text-center group">
-                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
-                  <img src="https://avatars.githubusercontent.com/u/5728020?v=4" alt="Jonatan Lara" class="w-full h-full object-cover">
-                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
-                    <a href="https://github.com/jonatanLara" target="_blank" class="text-white" aria-label="GitHub de Jonatan Lara">
-                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
-                    </a>
-                  </div>
-                </div>
-                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@jonatanLara</p>
+          <ul class="lg:w-1/2 grid grid-cols-2 sm:grid-cols-3 gap-6">
+            <!-- Jonatan -->
+            <li class="text-center group">
+              <div class="relative mx-auto w-24 h-24">
+                <!-- halo sutil -->
+                <div aria-hidden="true"
+                    class="absolute inset-0 rounded-full blur-sm opacity-60 transition group-hover:opacity-90
+                            bg-[conic-gradient(from_140deg,rgba(216,51,51,.55),rgba(240,65,255,.55))]"></div>
+                <!-- avatar -->
+                <img src="https://avatars.githubusercontent.com/u/5728020?v=4" alt="Jonatan Lara"
+                    class="relative z-10 w-24 h-24 rounded-full object-cover ring-2 ring-white/15 transition group-hover:ring-white/30"
+                    loading="lazy" decoding="async" />
+                <!-- botón GitHub SIEMPRE visible -->
+                <a href="https://github.com/jonatanLara" target="_blank" aria-label="GitHub de Jonatan Lara"
+                  class="absolute -bottom-1.5 -right-1.5 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full
+                          text-white shadow-md ring-2 ring-white/25 transition hover:scale-110 active:scale-95
+                          bg-[linear-gradient(66.77deg,#d83333,#f041ff)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
+                    <path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/>
+                  </svg>
+                </a>
               </div>
+              <p class="mt-3 inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs text-white/85 ring-1 ring-white/10">
+                @jonatanLara
+              </p>
+            </li>
 
-              <!-- Juan José -->
-              <div class="text-center group">
-                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
-                  <img src="https://avatars.githubusercontent.com/u/117763193?v=4" alt="Juan José" class="w-full h-full object-cover">
-                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
-                    <a href="https://github.com/juanjose1930" target="_blank" class="text-white" aria-label="GitHub de Juan José">
-                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
-                    </a>
-                  </div>
-                </div>
-                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@juanjose1930</p>
+            <!-- Juan José -->
+            <li class="text-center group">
+              <div class="relative mx-auto w-24 h-24">
+                <div aria-hidden="true"
+                    class="absolute inset-0 rounded-full blur-sm opacity-60 transition group-hover:opacity-90
+                            bg-[conic-gradient(from_140deg,rgba(216,51,51,.55),rgba(240,65,255,.55))]"></div>
+                <img src="https://avatars.githubusercontent.com/u/117763193?v=4" alt="Juan José"
+                    class="relative z-10 w-24 h-24 rounded-full object-cover ring-2 ring-white/15 transition group-hover:ring-white/30"
+                    loading="lazy" decoding="async" />
+                <a href="https://github.com/juanjose1930" target="_blank" aria-label="GitHub de Juan José"
+                  class="absolute -bottom-1.5 -right-1.5 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full
+                          text-white shadow-md ring-2 ring-white/25 transition hover:scale-110 active:scale-95
+                          bg-[linear-gradient(66.77deg,#d83333,#f041ff)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                </a>
               </div>
+              <p class="mt-3 inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs text-white/85 ring-1 ring-white/10">
+                @juanjose1930
+              </p>
+            </li>
 
-              <!-- Carlos Pérez -->
-              <div class="text-center group">
-                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
-                  <img src="https://avatars.githubusercontent.com/u/73508867?v=4" alt="Carlos Pérez" class="w-full h-full object-cover">
-                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
-                    <a href="https://github.com/carlosperezse" target="_blank" class="text-white" aria-label="GitHub de Carlos Pérez">
-                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
-                    </a>
-                  </div>
-                </div>
-                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@carlosperezse</p>
+            <!-- Carlos Pérez -->
+            <li class="text-center group">
+              <div class="relative mx-auto w-24 h-24">
+                <div aria-hidden="true" class="absolute inset-0 rounded-full blur-sm opacity-60 transition group-hover:opacity-90
+                            bg-[conic-gradient(from_140deg,rgba(216,51,51,.55),rgba(240,65,255,.55))]"></div>
+                <img src="https://avatars.githubusercontent.com/u/73508867?v=4" alt="Carlos Pérez"
+                    class="relative z-10 w-24 h-24 rounded-full object-cover ring-2 ring-white/15 transition group-hover:ring-white/30"
+                    loading="lazy" decoding="async" />
+                <a href="https://github.com/carlosperezse" target="_blank" aria-label="GitHub de Carlos Pérez"
+                  class="absolute -bottom-1.5 -right-1.5 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full
+                          text-white shadow-md ring-2 ring-white/25 transition hover:scale-110 active:scale-95
+                          bg-[linear-gradient(66.77deg,#d83333,#f041ff)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                </a>
               </div>
+              <p class="mt-3 inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs text-white/85 ring-1 ring-white/10">
+                @carlosperezse
+              </p>
+            </li>
 
-              <!-- David Quime -->
-              <div class="text-center group">
-                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
-                  <img src="https://avatars.githubusercontent.com/u/211899468?v=4" alt="David Quime" class="w-full h-full object-cover">
-                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
-                    <a href="https://github.com/dquime02" target="_blank" class="text-white" aria-label="GitHub de David Quime">
-                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
-                    </a>
-                  </div>
-                </div>
-                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@dquime02</p>
+            <!-- David Quime -->
+            <li class="text-center group">
+              <div class="relative mx-auto w-24 h-24">
+                <div aria-hidden="true" class="absolute inset-0 rounded-full blur-sm opacity-60 transition group-hover:opacity-90
+                            bg-[conic-gradient(from_140deg,rgba(216,51,51,.55),rgba(240,65,255,.55))]"></div>
+                <img src="https://avatars.githubusercontent.com/u/211899468?v=4" alt="David Quime"
+                    class="relative z-10 w-24 h-24 rounded-full object-cover ring-2 ring-white/15 transition group-hover:ring-white/30"
+                    loading="lazy" decoding="async" />
+                <a href="https://github.com/dquime02" target="_blank" aria-label="GitHub de David Quime"
+                  class="absolute -bottom-1.5 -right-1.5 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full
+                          text-white shadow-md ring-2 ring-white/25 transition hover:scale-110 active:scale-95
+                          bg-[linear-gradient(66.77deg,#d83333,#f041ff)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                </a>
               </div>
+              <p class="mt-3 inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs text-white/85 ring-1 ring-white/10">
+                @dquime02
+              </p>
+            </li>
 
-              <!-- Jose Villanueva -->
-              <div class="text-center group">
-                <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
-                  <img src="https://avatars.githubusercontent.com/u/54222990?v=4" alt="Jose Villanueva" class="w-full h-full object-cover">
-                  <div class="absolute bottom-0 right-0 bg-blue-500 w-9 h-9 rounded-full flex items-center justify-center transform translate-x-1/4 translate-y-1/4 group-hover:bg-gray-700 transition">
-                    <a href="https://github.com/joselsvp" target="_blank" class="text-white" aria-label="GitHub de Jose Villanueva">
-                      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
-                    </a>
-                  </div>
-                </div>
-                <p class="mt-3 text-xs bg-gray-700 text-gray-300 px-3 py-1 rounded-full inline-block">@joselsvp</p>
+            <!-- Jose Villanueva -->
+            <li class="text-center group">
+              <div class="relative mx-auto w-24 h-24">
+                <div aria-hidden="true" class="absolute inset-0 rounded-full blur-sm opacity-60 transition group-hover:opacity-90
+                            bg-[conic-gradient(from_140deg,rgba(216,51,51,.55),rgba(240,65,255,.55))]"></div>
+                <img src="https://avatars.githubusercontent.com/u/54222990?v=4" alt="Jose Villanueva"
+                    class="relative z-10 w-24 h-24 rounded-full object-cover ring-2 ring-white/15 transition group-hover:ring-white/30"
+                    loading="lazy" decoding="async" />
+                <a href="https://github.com/joselsvp" target="_blank" aria-label="GitHub de Jose Villanueva"
+                  class="absolute -bottom-1.5 -right-1.5 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full
+                          text-white shadow-md ring-2 ring-white/25 transition hover:scale-110 active:scale-95
+                          bg-[linear-gradient(66.77deg,#d83333,#f041ff)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true"><path d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.1 9 7.5 10.4.6.1.8-.2.8-.5 0-.3 0-1.1 0-2-2.8.5-3.5-.7-3.7-1.3-.1-.3-.7-1.3-1.1-1.6-.4-.2-.9-.7 0-.7.9 0 1.5.8 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.4-.3-5-.1-5-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.3 1.8-.4 2.7-.4.9 0 1.9.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.2-5 5.5.4.3.7 1 .7 2 0 1.5 0 2.7 0 3 0 .3.2.6.8.5C19.9 21 23 16.9 23 12 23 5.9 18.1 1 12 1Z"/></svg>
+                </a>
               </div>
-            </div>
-          </div>
+              <p class="mt-3 inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs text-white/85 ring-1 ring-white/10">
+                @joselsvp
+              </p>
+            </li>
+          </ul>
         </div>
       </section>
 

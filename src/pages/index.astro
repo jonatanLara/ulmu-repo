@@ -3,109 +3,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 import GridDownloads from "../components/GridDownloads.astro";
 import TeamGrid from "../components/TeamGrid.astro";
-import FlexFrameworks from "../components/FlexFrameworks.astro";
-import Card from "../components/Card.astro";
-import Button from "../components/Button.astro"
-
-const items = [
-  {
-    title: "Aplicación Bóveda",
-    description: "Cliente de escritorio para administrar tus respaldos.",
-    badge: "v1.0.0",
-    variants: [
-      { os: "Windows", href: "https://drive.google.com/uc?export=download&id=1_IhgLhpB1KzXKQMoSwKVhq92ryQ3L5pB", note: "Installer .exe" },
-      { os: "macOS", href: "https://drive.google.com/uc?export=download&id=1eoZ0s9CBpanTaRloxXqZe4O6x9_VGy9e", note: "Universal .jar" },
-    ],
-  },
-  {
-    title: "CLI Analyzer",
-    description: "Herramienta de línea de comandos para análisis rápido.",
-    badge: "v0.3.2",
-    variants: [
-      { os: "Windows", href: "https://github.com/jonatanLara/AnalyzerApp/releases/download/v1.0.0/main.exe", note: ".exe" },
-      { os: "macOS", href: "https://github.com/jonatanLara/AnalyzerApp/releases/download/v1.0.0/main.exe", note: "tar.gz" },
-    ],
-  },
-  {
-    title: "Apps de Diagnóstico",
-    description: "Monitoriza el estado de tus discos duros interno y externos de manera facil",
-    badge: "terceros",
-    variants: [
-      { os: "Windows", href: "https://crystalmark.info/redirect.php?product=CrystalDiskInfoInstaller", note: "CrystalDiskInfo" },
-      { os: "macOS", href: "https://apps.apple.com/us/app/amorphousdiskmark/id1168254295?mt=12", note: "AmorphousDiskMark" },
-    ],
-  },
-  {
-    title: "Plantillas",
-    description: "Archivos base y guías para configurar proyectos.",
-    badge: "v0.1.0",
-    variants: [
-      { os: "Docs", href: "#", note: "README" },
-    ],
-  },
-];
-const members = [
-  {
-    name: "Jonatan Lara",
-    username: "jonatanLara",
-    avatarUrl: "https://avatars.githubusercontent.com/u/5728020?v=4",
-    githubUrl: "https://github.com/jonatanLara",
-  },
-  {
-    name: "Juan José",
-    username: "juanjose1930",
-    avatarUrl: "https://avatars.githubusercontent.com/u/117763193?v=4",
-    githubUrl: "https://github.com/juanjose1930",
-  },
-  {
-    name: "Carlos Pérez",
-    username: "carlosperezse",
-    avatarUrl: "https://avatars.githubusercontent.com/u/73508867?v=4",
-    githubUrl: "https://github.com/carlosperezse",
-  },
-  {
-    name: "David Quime",
-    username: "dquime02",
-    avatarUrl: "https://avatars.githubusercontent.com/u/211899468?v=4",
-    githubUrl: "https://github.com/dquime02",
-  },
-  {
-    name: "Jose Villanueva",
-    username: "joselsvp",
-    avatarUrl: "https://avatars.githubusercontent.com/u/54222990?v=4",
-    githubUrl: "https://github.com/joselsvp",
-  },
-  {
-    name: "Paulina S.",
-    username: "PaulinaS4",
-    avatarUrl: "https://avatars.githubusercontent.com/u/129533685?v=4",
-    githubUrl: "https://github.com/joselsvp",
-  },
-];
+import items from "../data/downloads";
+import members from "../data/team";
+import GridDocuments from "../components/GridDocuments.astro";
+import documents from "../data/documents"; 
+const docs = documents;
 ---
 
 <BaseLayout title="Guía de Respaldo Preventivo">
   <Navbar />
-
-   <!-- <main class="mx-auto max-w-6xl px-4 py-12">
-    <Card as="section" class="p-8">
-      <p class="text-sm font-medium tracking-wide text-transparent bg-clip-text bg-[linear-gradient(66.77deg,#d83333,#f041ff)]">
-        Maximum Flexibility
-      </p>
-      <h1 class="mt-2 text-[clamp(2rem,4vw+1rem,3.5rem)] font-semibold leading-tight">
-        Herramientas que simplifican tu flujo
-      </h1>
-      <p class="mt-3 text-white/80">
-        ULMU reúne una <strong>bóveda</strong> de descargas y un <strong>analyzer</strong> ágil.
-      </p>
-
-      <div class="mt-6 flex flex-wrap gap-3">
-        <Button href="/boveda">Ir a Bóveda</Button>
-        <Button href="/analyzer" variant="secondary">Probar Analyzer</Button>
-        <Button variant="ghost" class="underline">Ver docs</Button>
-      </div>
-    </Card>
-  </main> -->
 
   <section class="space-y-6">
     <section aria-labelledby="bienvenido" class="mx-auto max-w-6xl px-4 py-12">
@@ -206,16 +112,14 @@ const members = [
     />
     <!-- <FlexFrameworks active="React" /> -->
     <main class="mx-auto max-w-6xl px-4 py-10">
-      <header class="mb-6">
-        <h1 class="text-3xl font-semibold tracking-tight">Descargas de la Aplicación</h1>
-        <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">
-          Selecciona la versión adecuada según tu sistema operativo.
-        </p>
-      </header>
+            
+      <GridDownloads items={items} />
 
-      <section class="mt-8">
-        <GridDownloads items={items} />
-      </section>
+      <GridDocuments
+        title="Documentos"
+        subtitle="Accede a políticas, manuales, informes y minutas de todas las áreas."
+        items={docs}
+      />
     </main>
   </section>
 </BaseLayout>

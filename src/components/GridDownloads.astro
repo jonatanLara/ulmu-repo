@@ -19,29 +19,41 @@ export interface Props {
 
 const { items } = Astro.props as Props;
 ---
-<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-  {items.map((card: CardItem) => (
-    <article class="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-sm transition hover:shadow-[0_10px_40px_rgba(168,85,247,.18)] hover:ring-1 hover:ring-fuchsia-400/30">
-      <header class="mb-3 flex items-center justify-between">
-        <h3 class="text-lg font-semibold">{card.title}</h3>
-        {card.badge && <span class="rounded-full border px-2 py-0.5 text-xs dark:border-neutral-700">{card.badge}</span>}
-      </header>
+<section class="mt-8">
+  <header class="mb-6">
+    <p class="text-sm font-medium tracking-wide text-transparent bg-clip-text bg-[linear-gradient(66.77deg,#d83333,#f041ff)]">
+      Biblioteca
+    </p>
+    <h2 class="mt-1 text-3xl font-semibold tracking-tight">Aplicación</h2>
+    <p class="mt-2 text-white/80">
+      Selecciona la versión adecuada según tu sistema operativo.
+    </p>
+  </header>
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {items.map((card: CardItem) => (
+      <article class="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-sm transition hover:shadow-[0_10px_40px_rgba(168,85,247,.18)] hover:ring-1 hover:ring-fuchsia-400/30">
+        <header class="mb-3 flex items-center justify-between">
+          <h3 class="text-lg font-semibold">{card.title}</h3>
+          {card.badge && <span class="rounded-full border px-2 py-0.5 text-xs dark:border-neutral-700">{card.badge}</span>}
+        </header>
 
-      {card.description && (
-        <p class="mb-4 text-sm text-neutral-600 dark:text-neutral-300">{card.description}</p>
-      )}
+        {card.description && (
+          <p class="mb-4 text-sm text-neutral-600 dark:text-neutral-300">{card.description}</p>
+        )}
 
-      <div class="flex flex-wrap gap-2">
-        {card.variants?.map((v: Variant) => (
-          <a
-            href={v.href}
-            class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm transition hover:ring-2 dark:border-neutral-800"
-          >
-            <span>{v.os}</span>
-            {v.note && <span class="text-xs opacity-70">{v.note}</span>}
-          </a>
-        ))}
-      </div>
-    </article>
-  ))}
-</div>
+        <div class="flex flex-wrap gap-2">
+          {card.variants?.map((v: Variant) => (
+            <a
+              href={v.href}
+              class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm transition hover:ring-2 dark:border-neutral-800"
+            >
+              <span>{v.os}</span>
+              {v.note && <span class="text-xs opacity-70">{v.note}</span>}
+            </a>
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+
+</section>

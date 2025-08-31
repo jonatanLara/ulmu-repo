@@ -10,7 +10,7 @@ const isActive = (href: string) => href === current;
 ---
 <nav class="sticky top-0 z-50 border-b border-white/10 bg-white/5 backdrop-blur supports-[backdrop-filter]:bg-white/7">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2">
-    <a href="/" class="font-semibold tracking-tight">ULMU</a>
+    <a href="/" class="font-semibold tracking-tight">ULMU.Repo</a>
 
     <ul class="flex items-center gap-1">
       {links.map(l => (
@@ -41,11 +41,11 @@ const isActive = (href: string) => href === current;
   </div>
 
   <script type="module">
-    const KEY = "ulmu-theme";
-    const root = document.documentElement;
-    document.getElementById("themeToggle")?.addEventListener("click", () => {
-      const isDark = root.classList.toggle("dark");
-      localStorage.setItem(KEY, isDark ? "dark" : "light");
-    });
+    // const KEY = "ulmu-theme";
+    // const root = document.documentElement;
+    // document.getElementById("themeToggle")?.addEventListener("click", () => {
+    //   //const isDark = root.classList.toggle("dark");
+    //  // localStorage.setItem(KEY, isDark ? "dark" : "light");
+    // });
   </script>
 </nav>

@@ -10,5 +10,8 @@ export default defineConfig({
   },
    markdown: {
     shikiConfig: { theme: "poimandres", wrap: true } // bonito para el tema oscuro
-  }
+  },
+  output: 'static', // o 'server' si necesitas SSR
+  site: 'https://app.repo.ulmu-tm.com', // tu dominio en NueBox
+  base: '/', // o la ruta base si está en subdirectorio,
 });

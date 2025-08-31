@@ -1,0 +1,109 @@
+---
+import type { DocumentItem } from "../data/documents";
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  items: DocumentItem[];
+  showFilters?: boolean;
+}
+const { title = "Documentos", subtitle = "Manuales, políticas y materiales.", items, showFilters = true } = Astro.props;
+
+// áreas únicas para el filtro
+const areas = Array.from(new Set(items.map((i) => i.area))).sort();
+
+// formateo de fecha con tipos (evita implicit any)
+const fmt = (iso?: string): string =>
+  iso ? new Date(iso).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" }) : "";
+---
+
+<section class="mt-8"> <!--mx-auto max-w-6xl px-4 py-10  -->
+  <header class="mb-6">
+    <p class="text-sm font-medium tracking-wide text-transparent bg-clip-text bg-[linear-gradient(66.77deg,#d83333,#f041ff)]">
+      Biblioteca
+    </p>
+    <h2 class="mt-1 text-3xl font-semibold tracking-tight">{title}</h2>
+    <p class="mt-2 text-white/80">{subtitle}</p>
+  </header>
+
+  {showFilters && (
+    <div class="mb-6 flex flex-wrap items-center gap-3">
+      <input id="doc-q" type="search" placeholder="Buscar por título o etiqueta…"
+        class="w-full sm:w-80 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm outline-none
+               focus:ring-2 focus:ring-[#f041ff]/40" />
+      <select id="doc-area"
+        class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm outline-none
+               focus:ring-2 focus:ring-[#f041ff]/40">
+        <option value="">Todas las áreas</option>
+        {areas.map((a) => <option value={a}>{a}</option>)}
+      </select>
+      <span class="text-xs text-white/60">Total: <strong id="doc-count">{items.length}</strong></span>
+    </div>
+  )}
+
+  <ul id="doc-list" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {items.map((d) => (
+      <li
+        data-area={d.area}
+        data-title={(d.title + " " + (d.tags || []).join(" ")).toLowerCase()}
+        class="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-sm backdrop-blur
+               transition hover:-translate-y-0.5 hover:shadow-[0_10px_40px_rgba(240,65,255,.18)] hover:ring-1 hover:ring-[#f041ff]/30">
+
+        <!-- encabezado -->
+        <div class="flex items-start justify-between gap-3">
+          <div class="min-w-0">
+            <h3 class="text-lg font-semibold line-clamp-2">{d.title}</h3>
+            <p class="mt-1 text-sm text-white/80 line-clamp-3">{d.description}</p>
+          </div>
+          <span class="shrink-0 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-xs">{d.area}</span>
+        </div>
+
+        <!-- meta -->
+        <div class="mt-2 text-xs text-white/60">
+          {d.updated && <>Actualizado: <time datetime={d.updated}>{fmt(d.updated)}</time></>}
+          {(d.tags || []).length > 0 && (
+            <span class="ml-2">
+              {d.tags!.map((t, i) => <span>{i ? " · " : ""}{t}</span>)}
+            </span>
+          )}
+        </div>
+
+        <!-- acciones / variantes -->
+        <div class="mt-3 flex flex-wrap gap-2">
+          {d.variants.map((v) => (
+            <a href={v.href} target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-1.5 text-sm
+                      text-white/90 shadow-sm backdrop-blur transition hover:bg-white/12 focus-visible:outline-none
+                      focus-visible:ring-2 focus-visible:ring-[#f041ff]/50">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-[linear-gradient(66.77deg,#d83333,#f041ff)]"></span>
+              {v.label}{v.size ? ` · ${v.size}` : ""}
+            </a>
+          ))}
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  <!-- filtros (JS puro) -->
+  <script type="module">
+    const list = document.getElementById("doc-list");
+    const q = document.getElementById("doc-q");
+    const sel = document.getElementById("doc-area");
+    const count = document.getElementById("doc-count");
+    function apply() {
+      const term = (q?.value || "").trim().toLowerCase();
+      const area = sel?.value || "";
+      let visible = 0;
+      list?.querySelectorAll("li[data-title]").forEach((li) => {
+        const okTerm = !term || li.getAttribute("data-title")?.includes(term);
+        const okArea = !area || li.getAttribute("data-area") === area;
+        const ok = okTerm && okArea;
+        li.classList.toggle("hidden", !ok);
+        if (ok) visible++;
+      });
+      if (count) count.textContent = String(visible);
+    }
+    q?.addEventListener("input", apply);
+    sel?.addEventListener("change", apply);
+  </script>
+</section>

@@ -24,6 +24,7 @@ const fmt = (d?: Date): string =>
   <Navbar />
 
   <article class="mx-auto max-w-3xl px-4 py-10">
+    <a href="/posts" class="text-white/80 hover:underline opacity-70">← Volver atrás</a>
     <header class="mb-6">
       <p class="text-xs text-white/60">
         Publicado:
@@ -40,7 +41,12 @@ const fmt = (d?: Date): string =>
           ))}
         </div>
       )}
-      {post.data.cover && <img src={post.data.cover} alt="" class="mt-6 w-full rounded-2xl object-cover" />}
+      {post.data.cover && <img 
+        transition:name={`img-${post.slug}`}
+        src={post.data.cover} 
+        alt="" 
+        class="mt-6 w-full rounded-2xl object-cover" />
+      }
     </header>
 
     <div class="prose-ulmu">
