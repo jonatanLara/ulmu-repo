@@ -3,7 +3,7 @@ title: "Guía de uso de app-tree"
 description: "Aprende como usar la app de tree para archivos .json"
 published: 2025-08-31
 tags: ["manual", "bóveda", "app.tree"]
-cover: "/src/assets/app_tree/2.png"
+cover: "assets/app_tree/2.png"
 draft: false
 contributors: ["dquime02","joselsvp"]
 ---
@@ -31,7 +31,7 @@ contributors: ["dquime02","joselsvp"]
 
 <p align="center">
   <img 
-    src="/src/assets/app_tree/4.png" 
+    src="assets/app_tree/4.png" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -42,7 +42,7 @@ contributors: ["dquime02","joselsvp"]
 
 <p align="center">
   <img 
-    src="/src/assets/app_tree/5.png" 
+    src="assets/app_tree/5.png" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -66,7 +66,7 @@ contributors: ["dquime02","joselsvp"]
 ### Buscador de archivos.
 <p align="center">
   <img 
-    src="/src/assets/app_tree/6.png" 
+    src="assets/app_tree/6.png" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -79,7 +79,7 @@ El portal ofrece un apartado donde puedes búscar por nombre de archivo esta ref
 ### Por cada nodo/carpeta:
 <p align="center">
   <img 
-    src="/src/assets/app_tree/7.png" 
+    src="assets/app_tree/7.png" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -94,7 +94,7 @@ El portal ofrece un apartado donde puedes búscar por nombre de archivo esta ref
 
 <p align="center">
   <img 
-    src="/src/assets/app_tree/1.png" 
+    src="assets/app_tree/1.png" 
     alt="Hoja Calendario"
     width="50%"
   />

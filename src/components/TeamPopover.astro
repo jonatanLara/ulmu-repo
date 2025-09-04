@@ -359,5 +359,30 @@ const pos =
     @media (max-width: 360px) {
       [data-team-popover] [data-grid] { grid-template-columns: repeat(2, minmax(0,1fr)); }
     }
+    .tp-panel[data-open="false"]{
+      /* lo volvemos invisible de verdad */
+      visibility: hidden;
+      pointer-events: none;
+      width: 0;
+      height: 0;
+      overflow: clip;
+
+      /* por si estaba “ajustado” con transform/shift */
+      transform: none !important;
+
+      /* si está en layer="body" (fixed), evita quedar fuera pintando barras */
+      left: 0 !important;
+      top: 0 !important;
+    }
+
+    /* Panel (abierto o no) con ancho controlado por variable */
+    .tp-panel{
+      width: min(96vw, var(--panel-w, 640px));
+      max-width: 96vw;
+      transform: translateX(var(--shiftX, 0)); /* solo se aplicará cuando data-open="true" */
+    }
+
+    /* (opcional pero recomendado) corta cualquier “paint overflow” del documento */
+    html, body { overflow-x: clip; }  /* mejor que hidden: no corta efectos verticales */
   </style>
 </div>

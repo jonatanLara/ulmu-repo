@@ -3,7 +3,7 @@ title: "Guía Analizador SSH"
 description: "Aprende como usar la app de tree para archivos .json"
 published: 2025-08-31
 tags: ["manual", "bóveda", "anayzer"]
-cover: "/src/assets/boveda/1.png"
+cover: "../../public/assets/boveda/1.png"
 draft: false
 contributors: ["jonatanLara","carlosperezse","joselsvp","juanjose1930","dquime02"]
 cta:
@@ -34,7 +34,7 @@ La aplicación ofrece:
 
 <p align="center">
   <img 
-    src="/src/assets/boveda/8.png" 
+    src="../../public/assets/boveda/8.png" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -55,7 +55,7 @@ La aplicación ofrece:
 
 <p align="center">
   <img 
-    src="/src/assets/boveda/7.png" 
+    src="../../public/assets/boveda/7.png" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -67,7 +67,7 @@ La aplicación ofrece:
 
 <p align="center">
   <img 
-    src="/src/assets/boveda/2.png" 
+    src="../../public/assets/boveda/2.png" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -77,7 +77,7 @@ La aplicación ofrece:
 
 <p align="center">
   <img 
-    src="/src/assets/boveda/3.png" 
+    src="../../public/assets/boveda/3.png" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -90,7 +90,7 @@ Llenamos el formulario al abrir la aplicación.
 
 <p align="center">
   <img 
-    src="/src/assets/boveda/1.png" 
+    src="../../public/assets/boveda/1.png" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -108,7 +108,7 @@ Llenamos el formulario al abrir la aplicación.
  
 <p align="center">
   <img 
-    src="/src/assets/boveda/4.png" 
+    src="../../public/assets/boveda/4.png" 
     alt="Hoja Calendario"
     width="100%"
   />
