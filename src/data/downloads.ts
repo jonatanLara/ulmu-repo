@@ -45,10 +45,13 @@ const items: DownloadItem[] = [
     ],
   },
   {
-    title: "Plantillas",
-    description: "Archivos base y guías para configurar proyectos.",
-    badge: "v0.1.0",
-    variants: [{ os: "Docs", href: "#", note: "README" }],
+    title: "App.tree.ulmu-tm",
+    description: "App web para visualizar las estrucutura de documentos de archivos .json",
+    badge: "v2.2.0",
+    variants: [
+      { os: "App Web", href: "https://app.tree.ulmu-tm.com/", note: "ir al sitio" },
+      { os: "Guía", href: "https://app.repo.ulmu-tm.com/posts/app-tree-ulmu-tm", note: "ir al sitio" }     
+    ],
   },
 ];
 

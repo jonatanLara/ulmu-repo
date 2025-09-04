@@ -1,0 +1,363 @@
+---
+export type Member = {
+  name: string;
+  username: string;
+  avatarUrl: string;
+  githubUrl: string;
+};
+
+export interface Props {
+  members: Member[];
+  title?: string;
+
+  /** avatares visibles en la vista compacta */
+  maxVisible?: number;                 // default 4
+  /** dirección de expansión del panel */
+  expand?: "down" | "right" | "left";  // default "down"
+  /** modo portal: "local" (por defecto) o "body" para que nunca quede detrás */
+  layer?: "local" | "body";            // default "local"
+
+  /** tamaño predefinido */
+  size?: "xs" | "sm" | "md" | "lg";    // default "md"
+  /** ancho máx. del panel (px) */
+  panelWidth?: number;                 // default 640
+  /** z-index del panel (solo útil si layer="local") */
+  zIndex?: number;                     // default 50
+
+  /** buscador/paginación */
+  searchable?: boolean;                // default true
+  pageSize?: number;                   // default 8
+
+  /** animación burbuja */
+  bubble?: boolean;                    // default true
+
+  /** filtrar sin tocar lista global */
+  include?: string[];
+  exclude?: string[];
+
+  class?: string;
+}
+
+const {
+  members,
+  title = "Team",
+  maxVisible = 4,
+  expand = "down",
+  layer = "local",
+
+  size = "md",
+  panelWidth = 640,
+  zIndex = 50,
+
+  searchable = true,
+  pageSize = 8,
+  bubble = true,
+
+  include,
+  exclude,
+  class: klass = "",
+} = Astro.props;
+
+/* ---- filtrado ---- */
+let list = members.slice();
+if (include?.length) {
+  list = include.map(u => members.find(m => m.username === u)).filter(Boolean) as Member[];
+}
+if (exclude?.length) {
+  const ex = new Set(exclude);
+  list = list.filter(m => !ex.has(m.username));
+}
+
+/* ---- tamaños por preset ---- */
+const sizeMap = {
+  xs: { compact: 28, panel: 44 },
+  sm: { compact: 34, panel: 52 },
+  md: { compact: 40, panel: 64 },
+  lg: { compact: 48, panel: 72 },
+} as const;
+const dim = sizeMap[size] ?? sizeMap.md;
+
+/* ---- datos compacta + posición ---- */
+const visible = list.slice(0, Math.max(1, maxVisible));
+const rest = Math.max(0, list.length - visible.length);
+
+const pos =
+  expand === "right"
+    ? "left-[calc(100%+12px)] top-0 origin-top-left"
+    : expand === "left"
+    ? "right-[calc(100%+12px)] top-0 origin-top-right"
+    : "left-0 top-[calc(100%+12px)] origin-top-left";
+---
+
+<div
+  data-team-popover
+  class={`relative inline-block ${klass}`}
+  data-expand={expand}
+  data-bubble={bubble ? "1" : "0"}
+  data-searchable={searchable ? "1" : "0"}
+  data-page-size={pageSize}
+  data-layer={layer}
+  style={`--avc:${dim.compact}px;--avp:${dim.panel}px;--panel-w:${panelWidth}px;--z:${zIndex};--shiftX:0px;--ax:24px;--ay:20px;`}
+>
+  <!-- Vista compacta -->
+  <div class="flex items-center gap-3 rounded-full border border-white/10 bg-white/10 px-3 py-2 shadow-sm backdrop-blur">
+    <div class="flex -space-x-3">
+      {visible.map((m) => (
+        <img
+          src={m.avatarUrl}
+          alt={m.name}
+          class="rounded-full ring-2 ring-white/80 object-cover"
+          style="width:var(--avc);height:var(--avc)"
+          loading="lazy"
+          decoding="async"
+        />
+      ))}
+    </div>
+
+    <button
+      type="button"
+      data-trigger
+      class="ml-1 inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-white/90
+             transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f041ff]/40"
+      aria-expanded="false"
+    >
+      {rest > 0 ? `+${rest}` : list.length}
+      <svg viewBox="0 0 24 24" class="h-5 w-5 transition-transform" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+    </button>
+  </div>
+
+  <!-- Panel -->
+  <div
+    data-panel
+    class={`tp-panel team-popover-halo absolute ${pos} rounded-2xl border border-white/15 bg-white/10 shadow-xl backdrop-blur
+            opacity-0 scale-95 translate-y-2 pointer-events-none transition-all duration-300 ease-out`}
+    role="dialog"
+    aria-label={title}
+    data-open="false"
+    style="z-index:var(--z);"
+  >
+    <div class="rounded-2xl">
+      <div class="flex flex-wrap items-center gap-3 justify-between px-4 md:px-5 pt-4">
+        <h3 class="text-base md:text-lg font-semibold tracking-tight text-transparent bg-clip-text
+                   bg-[linear-gradient(66.77deg,#d83333,#f041ff)]">{title}</h3>
+
+        {searchable && (
+          <div class="flex-1 min-w-[150px] max-w-[260px]">
+            <input
+              type="search"
+              data-search
+              placeholder="Buscar integrante…"
+              class="w-full rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm outline-none
+                     focus:ring-2 focus:ring-[#f041ff]/40"
+            />
+          </div>
+        )}
+
+        <button
+          type="button"
+          data-close
+          class="ml-auto rounded-full border border-white/15 bg-white/10 p-2 text-white/90 transition hover:bg-white/15
+                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f041ff]/40"
+          aria-label="Cerrar">✕</button>
+      </div>
+
+      <div class="mx-4 md:mx-5 mt-3 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"></div>
+
+      <ul data-grid class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4 md:p-5">
+        {list.map((m) => (
+          <li data-item data-key={m.username} data-search={(m.name + " " + m.username).toLowerCase()}>
+            <a href={m.githubUrl} target="_blank" rel="noopener" class="group block text-center">
+              <div
+                class="relative mx-auto rounded-full ring-2 ring-white/70 bg-white/70 overflow-hidden
+                       shadow-sm transition-transform group-hover:-translate-y-0.5"
+                style="width:var(--avp);height:var(--avp);box-shadow:0 10px 30px rgba(240,65,255,.15)"
+              >
+                <img src={m.avatarUrl} alt={m.name} class="h-full w-full object-cover" />
+                <span class="pointer-events-none absolute inset-0 rounded-full ring-1 ring-white/30"></span>
+              </div>
+              <p class="mt-1 sm:mt-2 text-xs sm:text-sm text-white/90 truncate">{m.name.split(' ')[0]}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <nav data-pagi class="px-4 pb-4 md:px-5 md:pb-5 flex items-center justify-center gap-1 text-sm"></nav>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script is:inline>
+    (() => {
+      const roots = document.querySelectorAll('[data-team-popover]:not([data-js-bound])');
+      roots.forEach((root) => {
+        root.setAttribute('data-js-bound', '1');
+
+        const layer    = root.getAttribute('data-layer') || 'local';
+        const bubble   = root.getAttribute('data-bubble') === '1';
+        const searchable = root.getAttribute('data-searchable') === '1';
+        const PAGE_SIZE = Number(root.getAttribute('data-page-size') || '8');
+
+        const trigger  = root.querySelector('[data-trigger]');
+        const panel    = root.querySelector('[data-panel]');
+        const grid     = root.querySelector('[data-grid]');
+        const closeBtn = root.querySelector('[data-close]');
+        const search   = root.querySelector('[data-search]');
+        const pagi     = root.querySelector('[data-pagi]');
+        const chevron  = trigger?.querySelector('svg');
+
+        // Portal al body (para evitar stacking/overflow/clip)
+        let scrim = null;
+        let placeholder = null;
+        const toBody = () => {
+          if (!panel || layer !== 'body' || panel.parentElement === document.body) return;
+          placeholder = document.createComment('panel-placeholder');
+          panel.parentElement.insertBefore(placeholder, panel);
+          panel.style.position = 'fixed';
+          panel.style.inset = 'auto auto auto auto';
+          panel.style.zIndex = '9999';
+
+          scrim = document.createElement('div');
+          scrim.setAttribute('data-tp-scrim', '1');
+          Object.assign(scrim.style, {
+            position: 'fixed', inset: '0', background: 'transparent', zIndex: '9998'
+          });
+          document.body.appendChild(scrim);
+          document.body.appendChild(panel);
+        };
+        const toLocal = () => {
+          if (!panel || layer !== 'body') return;
+          if (scrim) { scrim.remove(); scrim = null; }
+          if (placeholder) { placeholder.parentNode?.insertBefore(panel, placeholder); placeholder.remove(); placeholder = null; }
+          panel.style.position = ''; panel.style.zIndex = '';
+        };
+
+        let open = false, term = '', page = 1;
+        const items = Array.from(grid?.querySelectorAll('[data-item]') || []);
+        const apply = () => {
+          const src = items.filter(li => {
+            const s = (li.getAttribute('data-search') || '');
+            return !term || s.includes(term);
+          });
+          const totalPages = Math.max(1, Math.ceil(src.length / PAGE_SIZE));
+          if (page > totalPages) page = totalPages;
+          items.forEach(li => li.classList.add('hidden'));
+          const start = (page - 1) * PAGE_SIZE, end = start + PAGE_SIZE;
+          src.slice(start, end).forEach(li => li.classList.remove('hidden'));
+          renderPagi(totalPages);
+        };
+        const renderPagi = (totalPages) => {
+          if (!pagi) return;
+          const btn = (label, target, disabled=false, current=false) => {
+            const b = document.createElement('button');
+            b.textContent = label; b.disabled = disabled;
+            b.className =
+              "rounded-full border border-white/10 px-3 py-1.5 " +
+              (current ? "bg-white/15 text-white" : "bg-white/5 text-white/90 hover:bg-white/10") +
+              (disabled ? " opacity-50 cursor-not-allowed" : "");
+            if (!disabled && !current) b.addEventListener('click', () => { page = target; apply(); });
+            return b;
+          };
+          pagi.innerHTML = "";
+          const total = Math.max(1, totalPages);
+          const prev = Math.max(1, page - 1), next = Math.min(total, page + 1);
+          pagi.appendChild(btn("‹", prev, page === 1));
+          const from = Math.max(1, page - 2), to = Math.min(total, page + 2);
+          if (from > 1) { pagi.appendChild(btn("1", 1, false, page===1)); if (from > 2) pagi.append("…"); }
+          for (let n=from; n<=to; n++) pagi.appendChild(btn(String(n), n, false, page===n));
+          if (to < total) { if (to < total - 1) pagi.append("…"); pagi.appendChild(btn(String(total), total, false, page===total)); }
+          pagi.appendChild(btn("›", next, page === total));
+        };
+
+        const setBubbleAnchor = () => {
+          if (!panel || !trigger) return;
+          const pb = panel.getBoundingClientRect();
+          const tb = trigger.getBoundingClientRect();
+          const ax = Math.max(16, Math.min(tb.left + tb.width/2 - pb.left, pb.width - 16));
+          const ay = Math.max(16, Math.min(tb.top  + tb.height/2 - pb.top , pb.height - 16));
+          panel.style.setProperty('--ax', ax + 'px');
+          panel.style.setProperty('--ay', ay + 'px');
+        };
+        const adjustIntoViewport = () => {
+          if (!panel) return;
+          panel.style.setProperty('--shiftX', '0px');
+          const rect = panel.getBoundingClientRect();
+          const vw = window.innerWidth, margin = 8;
+          let shift = 0;
+          if (rect.right > vw - margin) shift = (vw - margin) - rect.right;
+          if (rect.left < margin) shift = margin - rect.left;
+          panel.style.setProperty('--shiftX', shift + 'px');
+        };
+
+        const set = (v) => {
+          open = v;
+          trigger?.setAttribute('aria-expanded', String(v));
+          panel?.setAttribute('data-open', v ? 'true' : 'false');
+          panel?.classList.toggle('opacity-0', !v);
+          panel?.classList.toggle('scale-95', !v);
+          panel?.classList.toggle('translate-y-2', !v);
+          panel?.classList.toggle('pointer-events-none', !v);
+          if (chevron) chevron.style.transform = v ? 'rotate(180deg)' : 'rotate(0deg)';
+
+          if (v) {
+            if (layer === 'body') {
+              toBody();
+              // Reposicionar panel cerca del trigger
+              const t = trigger.getBoundingClientRect();
+              const p = panel.getBoundingClientRect();
+              const top = (window.scrollY + t.bottom + 12);
+              let left = (window.scrollX + t.left);
+              if (root.getAttribute('data-expand') === 'right') left = window.scrollX + t.right + 12;
+              if (root.getAttribute('data-expand') === 'left')  left = window.scrollX + t.left - p.width - 12;
+              panel.style.top = top + 'px';
+              panel.style.left = left + 'px';
+            }
+            requestAnimationFrame(() => { if (bubble) setBubbleAnchor(); adjustIntoViewport(); });
+          } else if (layer === 'body') {
+            toLocal();
+          }
+        };
+
+        trigger?.addEventListener('click', (e) => { e.stopPropagation(); set(!open); });
+        closeBtn?.addEventListener('click', (e) => { e.stopPropagation(); set(false); });
+        document.addEventListener('click', (e) => {
+          if (!open) return;
+          if (layer === 'body' && scrim && e.target === scrim) { set(false); return; }
+          if (!root.contains(e.target)) set(false);
+        });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
+
+        if (searchable && search) {
+          search.addEventListener('input', () => { const v = (search.value || '').trim().toLowerCase(); term = v; page = 1; apply(); });
+        }
+
+        apply();
+        window.addEventListener('resize', () => { if (open) { if (bubble) setBubbleAnchor(); adjustIntoViewport(); } });
+      });
+    })();
+  </script>
+
+  <!-- Estilos globales -->
+  <style is:global>
+    /* halo anim */
+    @keyframes team-popover-float { 0%,100%{ box-shadow:0 8px 30px rgba(240,65,255,.10) } 50%{ box-shadow:0 16px 46px rgba(240,65,255,.22) } }
+    .team-popover-halo { animation: team-popover-float 7s ease-in-out infinite; }
+    .team-popover-halo:hover { animation-play-state: paused; }
+
+    /* width por CSS var */
+    .tp-panel { width: min(96vw, var(--panel-w, 640px)); max-width: 96vw; transform: translateX(var(--shiftX,0)); }
+
+    /* bubble */
+    [data-team-popover][data-bubble="1"] [data-panel] {
+      will-change: clip-path, transform, opacity;
+      clip-path: circle(0% at var(--ax, 50%) var(--ay, 0%));
+    }
+    [data-team-popover][data-bubble="1"] [data-panel][data-open="true"] {
+      clip-path: circle(150% at var(--ax, 50%) var(--ay, 0%));
+    }
+
+    /* micro breakpoint */
+    @media (max-width: 360px) {
+      [data-team-popover] [data-grid] { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+  </style>
+</div>

@@ -24,53 +24,72 @@ export type DocumentItem = {
 
 const documents: DocumentItem[] = [
   {
-    title: "Política de respaldo y retención",
-    description: "Normativa interna para copias de seguridad y tiempos de retención.",
-    area: "Administración",
-    updated: "2025-02-01",
-    tags: ["política", "seguridad"],
-    variants: [
-      { label: "PDF", format: "PDF", href: "#" },
-      { label: "Word", format: "DOCX", href: "#" }
-    ]
-  },
-  {
-    title: "Manual de incorporación",
-    description: "Guía para nuevos colaboradores: accesos, buenas prácticas y herramientas.",
-    area: "Recursos Humanos",
-    updated: "2025-01-15",
-    tags: ["onboarding"],
-    variants: [{ label: "PDF", format: "PDF", href: "#" }]
-  },
-  {
-    title: "Informe técnico trimestral",
+    title: "Formato de permisos",
     description: "Resultados de salud de discos y métricas de desempeño.",
-    area: "Informes técnicos",
-    updated: "2024-12-31",
-    tags: ["Q4", "métricas"],
+    area: "Recursos Humanos",
+    updated: "2025-01-12",
+    tags: ["Formatos", "Plantilla"],
     variants: [
-      { label: "PDF", format: "PDF", href: "#" },
-      { label: "Excel", format: "XLSX", href: "#" }
+      { label: "Excel", format: "XLSX", href: "/src/assets/docs/FORMATO_DE_PERMISOS.xlsx" }
     ]
   },
   {
-    title: "Minuta – Comité de preservación",
-    description: "Acuerdos y tareas de la reunión mensual.",
-    area: "Minutas",
-    updated: "2025-01-10",
-    tags: ["reunión", "acuerdos"],
-    variants: [{ label: "PDF", format: "PDF", href: "#" }]
+    title: "Formato de comisión",
+    description: "Resultados de salud de discos y métricas de desempeño.",
+    area: "Recursos Humanos",
+    updated: "2025-01-12",
+    tags: ["Formato", "Plantilla"],
+    variants: [
+      { label: "Excel", format: "XLSX", href: "/src/assets/docs/FORMATO_DE_COMISIONES.xlsx" }
+    ]
   },
   {
-    title: "Plantilla de checklist",
-    description: "Checklist para verificación de medios y firma de conformidad.",
-    area: "Materiales",
-    tags: ["template"],
+    title: "Pase de salida",
+    description: "Resultados de salud de discos y métricas de desempeño.",
+    area: "Recursos Humanos",
+    updated: "2025-01-12",
+    tags: ["Formatos", "Plantilla"],
     variants: [
-      { label: "Word", format: "DOCX", href: "#" },
-      { label: "PDF", format: "PDF", href: "#" }
+      { label: "Excel", format: "XLSX", href: "/src/assets/docs/FORMATO_DE_PASE_DE_SALIDA.xlsx" }
     ]
-  }
+  },
+  // {
+  //   title: "Política de respaldo y retención",
+  //   description: "Normativa interna para copias de seguridad y tiempos de retención.",
+  //   area: "Administración",
+  //   updated: "2025-02-01",
+  //   tags: ["política", "seguridad"],
+  //   variants: [
+  //     { label: "PDF", format: "PDF", href: "#" },
+  //     { label: "Word", format: "DOCX", href: "#" }
+  //   ]
+  // },
+  // {
+  //   title: "Manual de incorporación",
+  //   description: "Guía para nuevos colaboradores: accesos, buenas prácticas y herramientas.",
+  //   area: "Recursos Humanos",
+  //   updated: "2025-01-15",
+  //   tags: ["onboarding"],
+  //   variants: [{ label: "PDF", format: "PDF", href: "#" }]
+  // },
+  // {
+  //   title: "Minuta – Comité de preservación",
+  //   description: "Acuerdos y tareas de la reunión mensual.",
+  //   area: "Minutas",
+  //   updated: "2025-01-10",
+  //   tags: ["reunión", "acuerdos"],
+  //   variants: [{ label: "PDF", format: "PDF", href: "#" }]
+  // },
+  // {
+  //   title: "Plantilla de checklist",
+  //   description: "Checklist para verificación de medios y firma de conformidad.",
+  //   area: "Materiales",
+  //   tags: ["template"],
+  //   variants: [
+  //     { label: "Word", format: "DOCX", href: "#" },
+  //     { label: "PDF", format: "PDF", href: "#" }
+  //   ]
+  // }
 ];
 
 export default documents;

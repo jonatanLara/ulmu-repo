@@ -45,6 +45,7 @@ const { items } = Astro.props as Props;
           {card.variants?.map((v: Variant) => (
             <a
               href={v.href}
+              target="_blank"
               class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm transition hover:ring-2 dark:border-neutral-800"
             >
               <span>{v.os}</span>

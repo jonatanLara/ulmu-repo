@@ -1,77 +1,104 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Navbar from "../../components/Navbar.astro";
+import TeamPopover from "../../components/TeamPopover.astro";
+import members from "../../data/team";                     // tu lista global
 import { getCollection } from "astro:content";
 
-const all = await getCollection("posts", ({ data }) => !data.draft);
-const posts = all.sort((a, b) => +b.data.published - +a.data.published);
+const posts = (await getCollection("posts", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
 ---
-<BaseLayout title="ULMU – Posts" description="Manuales, tutoriales y guías">
+
+<BaseLayout title="Manuales y Guías – ULMU.Repo" description="Documentación enriquecida escrita en Markdown.">
   <Navbar />
 
-  <main class="mx-auto max-w-6xl px-4 py-12">
-    <header class="mb-6">
-      <p class="text-sm font-medium tracking-wide text-transparent bg-clip-text bg-[linear-gradient(66.77deg,#d83333,#f041ff)]">
-        Publicaciones
-      </p>
-      <h1 class="mt-1 text-3xl md:text-4xl font-semibold">Manuales y Guías</h1>
-      <p class="mt-2 text-white/80">Documentación enriquecida escrita en Markdown.</p>
-    </header>
+  <!-- HERO -->
+  <section class="relative mx-auto max-w-6xl px-4 pt-8 pb-4">
+    <div class="pointer-events-none absolute inset-0 -z-10 rounded-b-[2rem] bg-[radial-gradient(1000px_300px_at_20%_-10%,#3b1c8d33,transparent),radial-gradient(1000px_300px_at_80%_-10%,#f041ff22,transparent)]"></div>
 
-    <!-- Buscador -->
-    <div class="mb-6 flex flex-wrap items-center gap-3">
-      <input id="q" type="search" placeholder="Buscar por título o etiqueta…"
-             class="w-full sm:w-80 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm outline-none
-                    focus:ring-2 focus:ring-[#f041ff]/40" />
-      <span class="text-xs text-white/60">Total: <strong id="count">{posts.length}</strong></span>
+    <p class="text-sm font-medium text-transparent bg-clip-text bg-[linear-gradient(66.77deg,#d83333,#f041ff)]">
+      Publicaciones
+    </p>
+    <h1 class="mt-1 text-4xl md:text-5xl font-semibold tracking-tight">Manuales y Guías</h1>
+    <p class="mt-2 text-white/80">Documentación enriquecida escrita en Markdown.</p>
+
+    <!-- buscador + total -->
+    <div class="mt-5 flex items-center gap-3">
+      <input id="q" type="search" placeholder="Buscar por título o etiqueta..."
+             class="w-full max-w-xl rounded-2xl border border-white/10 bg-white/5 px-4 py-2 outline-none
+                    focus:ring-2 focus:ring-[#f041ff]/40">
+      <span class="text-sm text-white/70">Total: <strong id="tot">{posts.length}</strong></span>
     </div>
+  </section>
 
-    <!-- Grid -->
-    <ul id="list" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {posts.map(p => (
-        <li
-          data-title={(p.data.title + " " + (p.data.tags || []).join(" ")).toLowerCase()}
-          class="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-[0_10px_40px_rgba(240,65,255,.18)] hover:ring-1 hover:ring-[#f041ff]/30"
-        >
-          {
-          p.data.cover && <img 
-            transition:name={`img-${p.slug}`}
-            src={p.data.cover} 
-            alt="" 
-            class="mb-4 h-36 w-full rounded-xl object-cover" 
-          />
-          }
-          <h3 class="text-lg font-semibold line-clamp-2">{p.data.title}</h3>
-          {p.data.description && <p class="mt-1 text-sm text-white/80 line-clamp-3">{p.data.description}</p>}
-          <div class="mt-3 flex flex-wrap gap-2">
-            {(p.data.tags || []).map(t => (
-              <span class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-xs">{t}</span>
-            ))}
+  <!-- GRID DE TARJETAS -->
+  <section class="mx-auto max-w-6xl px-4 pb-10">
+    <ul id="grid" class="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((p) => (
+        <li class="card group rounded-2xl border border-white/10 bg-white/5 shadow-xl backdrop-blur"
+            data-title={(p.data.title + " " + (p.data.tags||[]).join(" ")).toLowerCase()}>
+          <!-- imagen / cover -->
+          {p.data.cover
+            ? <img src={p.data.cover} alt="" class="h-40 w-full rounded-t-2xl object-cover"/>
+            : <div class="h-40 w-full rounded-t-2xl bg-gradient-to-br from-white/10 to-white/5"></div>}
+          <!-- cuerpo -->
+          <div class="p-5">
+            <h3 class="text-lg font-semibold">{p.data.title}</h3>
+            {p.data.description && <p class="mt-1 text-sm text-white/80 line-clamp-2">{p.data.description}</p>}
+
+            <!-- tags -->
+            {(p.data.tags || []).length > 0 && (
+              <div class="mt-3 flex flex-wrap gap-2">
+                {p.data.tags!.map((t) => (
+                  <span class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-xs">{t}</span>
+                ))}
+              </div>
+            )}
+
+            <!-- acciones: Leer + TeamPopover (pequeño) -->
+            <div class="mt-4 flex items-center justify-between">
+              <a href={`/posts/${p.slug}/`}
+                 class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-sm
+                        transition hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f041ff]/40">
+                Leer
+              </a>
+
+              <div class="shrink-0">
+                <TeamPopover
+                  members={members}
+                  include={p.data.contributors || []}
+                  size="xs"              
+                  panelWidth={420}       
+                  layer="body"           
+                  expand="right"
+                />
+              </div>
+            </div>
           </div>
-          <a href={`/posts/${p.slug}/`}
-             class="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-1.5 text-sm
-                    text-white/90 shadow-sm backdrop-blur transition hover:bg-white/12 focus-visible:outline-none
-                    focus-visible:ring-2 focus-visible:ring-[#f041ff]/50">Leer</a>
         </li>
       ))}
     </ul>
-  </main>
+  </section>
 
-  <script type="module">
-    const q = document.getElementById("q");
-    const list = document.getElementById("list");
-    const count = document.getElementById("count");
-    if (q && list) {
-      q.addEventListener("input", () => {
-        const term = q.value.trim().toLowerCase();
+  <!-- filtro client-side (opcional) -->
+  <script is:inline>
+    (() => {
+      const q = document.getElementById('q');
+      const grid = document.getElementById('grid');
+      const tot = document.getElementById('tot');
+      const items = Array.from(grid.querySelectorAll('.card'));
+      function apply() {
+        const term = (q.value || '').trim().toLowerCase();
         let visible = 0;
-        list.querySelectorAll("li[data-title]").forEach((li) => {
-          const ok = !term || li.getAttribute("data-title").includes(term);
-          li.classList.toggle("hidden", !ok);
+        items.forEach(li => {
+          const hay = li.getAttribute('data-title') || '';
+          const ok = !term || hay.includes(term);
+          li.classList.toggle('hidden', !ok);
           if (ok) visible++;
         });
-        if (count) count.textContent = String(visible);
-      });
-    }
+        tot.textContent = String(visible);
+      }
+      q?.addEventListener('input', apply);
+    })();
   </script>
 </BaseLayout>
