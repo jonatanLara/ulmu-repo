@@ -3,15 +3,23 @@ title: "Guía de uso de app-tree"
 description: "Aprende como usar la app de tree para archivos .json"
 published: 2025-08-31
 tags: ["manual", "bóveda", "app.tree"]
-cover: "assets/app_tree/2.png"
+cover: "https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/app_tree/2.png?raw=true"
 draft: false
 contributors: ["dquime02","joselsvp"]
+cta:
+  name: "App tree"
+  store: "Sitio oficial"
+  action: "App web"
+  icon: "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/astro.svg"
+  badge: "recomendado"
+  websiteUrl: "https://github.com/dquime02"
+  
 ---
 
 
 # App.tree
 
-**App tree** es una herramienta web que procesa archivos JSON generados por la aplicación desktop AnalizadorSSH, permitiendo visualizar de manera interactiva la estructura de carpetas analizadas. Facilita la colaboración entre usuarios al permitir compartir información sobre el contenido de carpetas sin necesidad de acceso físico a los archivos
+**App tree** es una herramienta web que procesa archivos JSON generados por la aplicación desktop **Analizador HDD**, permitiendo visualizar de manera interactiva la estructura de carpetas analizadas. Facilita la colaboración entre usuarios al permitir compartir información sobre el contenido de carpetas sin necesidad de acceso físico a los archivos
 
 ### ✨ Características principales
 
@@ -31,7 +39,7 @@ contributors: ["dquime02","joselsvp"]
 
 <p align="center">
   <img 
-    src="assets/app_tree/4.png" 
+    src="https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/app_tree/4.png?raw=true" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -42,7 +50,7 @@ contributors: ["dquime02","joselsvp"]
 
 <p align="center">
   <img 
-    src="assets/app_tree/5.png" 
+    src="https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/app_tree/5.png?raw=true" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -66,7 +74,7 @@ contributors: ["dquime02","joselsvp"]
 ### Buscador de archivos.
 <p align="center">
   <img 
-    src="assets/app_tree/6.png" 
+    src="https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/app_tree/6.png?raw=true" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -79,7 +87,7 @@ El portal ofrece un apartado donde puedes búscar por nombre de archivo esta ref
 ### Por cada nodo/carpeta:
 <p align="center">
   <img 
-    src="assets/app_tree/7.png" 
+    src="https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/app_tree/7.png?raw=true" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -94,7 +102,7 @@ El portal ofrece un apartado donde puedes búscar por nombre de archivo esta ref
 
 <p align="center">
   <img 
-    src="assets/app_tree/1.png" 
+    src="https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/app_tree/1.png?raw=true" 
     alt="Hoja Calendario"
     width="50%"
   />

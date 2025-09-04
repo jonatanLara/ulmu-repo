@@ -9,18 +9,18 @@ export type DownloadItem = {
 
 const items: DownloadItem[] = [
   {
-    title: "Aplicación Bóveda",
+    title: "Analizador HDD",
     description: "Cliente de escritorio para administrar tus respaldos.",
-    badge: "v1.0.0",
+    badge: "v4.0.2",
     variants: [
       { os: "Windows", href: "https://drive.google.com/uc?export=download&id=1_IhgLhpB1KzXKQMoSwKVhq92ryQ3L5pB", note: "Installer .exe" },
       { os: "macOS", href: "https://drive.google.com/uc?export=download&id=1eoZ0s9CBpanTaRloxXqZe4O6x9_VGy9e", note: "Universal .jar" },
     ],
   },
   {
-    title: "CLI Analyzer",
+    title: "Analyzer",
     description: "Herramienta de línea de comandos para análisis rápido.",
-    badge: "v0.3.2",
+    badge: "v2.0.0",
     variants: [
       { os: "Windows", href: "https://github.com/jonatanLara/AnalyzerApp/releases/download/v1.0.0/main.exe", note: ".exe" },
       { os: "macOS", href: "https://github.com/jonatanLara/AnalyzerApp/releases/download/v1.0.0/main.exe", note: "tar.gz" },

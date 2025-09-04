@@ -1,9 +1,9 @@
 ---
-title: "Guía Analizador SSH"
+title: "Guía Analizador HDD"
 description: "Aprende como usar la app de tree para archivos .json"
 published: 2025-08-31
 tags: ["manual", "bóveda", "anayzer"]
-cover: "../../public/assets/boveda/1.png"
+cover: "https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/boveda/1.png?raw=true"
 draft: false
 contributors: ["jonatanLara","carlosperezse","joselsvp","juanjose1930","dquime02"]
 cta:
@@ -25,16 +25,16 @@ cta:
 ---
 
 
-# Analizador de SSH
+# Analizador de HDD
 
-**Analizador de SSH** es una herramienta para analizar discos duros y detectar rutas problemáticas.
+**Analizador de HDD** es una herramienta para analizar discos duros y detectar rutas problemáticas.
 **Escanea carpetas y archivos, identifica aquellas que exceden los 260** caracteres o contienen caracteres inválidos,
 y genera un reporte en Excel optimizado incluso para discos de varios TB con millones de archivos.
 La aplicación ofrece:
 
 <p align="center">
   <img 
-    src="../../public/assets/boveda/8.png" 
+    src="https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/boveda/8.png?raw=true" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -55,7 +55,7 @@ La aplicación ofrece:
 
 <p align="center">
   <img 
-    src="../../public/assets/boveda/7.png" 
+    src="https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/boveda/7.png?raw=true" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -67,7 +67,7 @@ La aplicación ofrece:
 
 <p align="center">
   <img 
-    src="../../public/assets/boveda/2.png" 
+    src="https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/boveda/2.png?raw=true" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -77,7 +77,7 @@ La aplicación ofrece:
 
 <p align="center">
   <img 
-    src="../../public/assets/boveda/3.png" 
+    src="https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/boveda/3.png?raw=true" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -90,7 +90,7 @@ Llenamos el formulario al abrir la aplicación.
 
 <p align="center">
   <img 
-    src="../../public/assets/boveda/1.png" 
+    src="https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/boveda/1.png?raw=true" 
     alt="Hoja Calendario"
     width="100%"
   />
@@ -108,7 +108,7 @@ Llenamos el formulario al abrir la aplicación.
  
 <p align="center">
   <img 
-    src="../../public/assets/boveda/4.png" 
+    src="https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/boveda/4.png?raw=true" 
     alt="Hoja Calendario"
     width="100%"
   />

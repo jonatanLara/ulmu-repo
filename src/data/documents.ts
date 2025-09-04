@@ -30,7 +30,7 @@ const documents: DocumentItem[] = [
     updated: "2025-01-12",
     tags: ["Formatos", "Plantilla"],
     variants: [
-      { label: "Excel", format: "XLSX", href: "../../public/assets/docs/FORMATO_DE_PERMISOS.xlsx" }
+      { label: "Excel", format: "XLSX", href: "https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/docs/FORMATO_DE_PERMISOS.xlsx" }
     ]
   },
   {
@@ -40,7 +40,7 @@ const documents: DocumentItem[] = [
     updated: "2025-01-12",
     tags: ["Formato", "Plantilla"],
     variants: [
-      { label: "Excel", format: "XLSX", href: "../../public/assets/docs/FORMATO_DE_COMISIONES.xlsx" }
+      { label: "Excel", format: "XLSX", href: "https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/docs/FORMATO_DE_COMISIONES.xlsx" }
     ]
   },
   {
@@ -50,7 +50,7 @@ const documents: DocumentItem[] = [
     updated: "2025-01-12",
     tags: ["Formatos", "Plantilla"],
     variants: [
-      { label: "Excel", format: "XLSX", href: "../../public/assets/docs/FORMATO_DE_PASE_DE_SALIDA.xlsx" }
+      { label: "Excel", format: "XLSX", href: "https://github.com/jonatanLara/ulmu-repo/blob/develop/public/assets/docs/FORMATO_DE_PASE_DE_SALIDA.xlsx" }
     ]
   },
   // {
